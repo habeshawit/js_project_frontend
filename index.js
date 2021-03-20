@@ -20,7 +20,8 @@ function getBooks() {
             <img src=${book.attributes.image_url} height="300" width="250">
             <h3>${book.attributes.title}</h3>
             <p>${book.attributes.author}</p>
-            <p>${book.attributes.category.name}</p>
+            <p>$ ${book.attributes.price}</p>
+            <p>Genre: ${book.attributes.category.name}</p>
             <button data-id=${book.id}>edit</button>
           </div>
           <br><br>`;
@@ -43,22 +44,34 @@ function createFormHandler(e) {
   postBook(title, author, price, description, seller_info, image, categoryId);
 }
 
-function postBook(
-  title,
-  author,
-  price,
-  description,
-  seller_info,
-  image,
-  categoryId
-) {
-  console.log(
-    title,
-    author,
-    price,
-    description,
-    seller_info,
-    image,
-    categoryId
-  );
+// prettier-ignore
+function postBook(title, author, price, description, seller_info, image_url, category_id){
+  // console.log(title, author, price, description, seller_info, image_url, category_id);
+  
+  let bodyData = {title, author, price, description, seller_info, image_url, category_id}
+
+  fetch(endPoint, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(bodyData)
+  })
+  .then(response => response.json())
+  .then(book => {
+    console.log(book);
+    const bookData = book.data.attributes
+    // render JSON response
+    const bookMarkup = `
+    <div data-id=${book.id}>
+      <img src=${bookData.image_url} height="300" width="250">
+      <h3>${bookData.title}</h3>
+      <p>${bookData.author}</p>
+      <p>$ ${bookData.price}</p>
+      <p> Category: ${bookData.category.name}</p>
+      <button data-id=${bookData.id}>edit</button>
+    </div>
+    <br><br>`;
+
+    document.querySelector('#book-container').innerHTML += bookMarkup;
+  })
+
 }
