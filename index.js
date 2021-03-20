@@ -13,10 +13,12 @@ function getBooks() {
     .then((response) => response.json())
     .then((books) => {
       // remember our JSON data is a bit nested due to our serializer
-      books.data.forEach((book) => {
-        // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-        render(book);
-      });
+      books.data
+        .forEach((book) => {
+          // double check how your data is nested in the console so you can successfully access the attributes of each individual object
+          render(book);
+        })
+        .catch((err) => console.log(err));
     });
 }
 
