@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const createBookForm = document.querySelector("#create-book-form");
 
   createBookForm.addEventListener("submit", (e) => createFormHandler(e));
+
+  const bookContainer = document.querySelector("#book-container");
+  bookContainer.addEventListener("click", (e) => {
+    const id = parseInt(e.target.dataset.id);
+    const book = Book.findById(id);
+    document.querySelector("#update-book").innerHTML = book.renderUpdateForm();
+  });
 });
 
 function getBooks() {
