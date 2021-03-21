@@ -58,8 +58,6 @@ constructor() {
     document.querySelector('#update-book').addEventListener('submit', this.handleFormSubmit);
   }
 
-  // notice the previous functionality is broken up
-  // into two different methods for future re-use...
   createBooks(books) {
     console.log(books);
     books.data.forEach(book => {
