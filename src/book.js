@@ -10,6 +10,17 @@ class Book {
     this.category = bookAttributes.category;
     Book.all.push(this);
   }
+  //   constructor(data) {
+  //     this.id = data.id;
+  //     this.title = data.title;
+  //     this.author = data.author;
+  //     this.price = data.price;
+  //     this.description = data.description;
+  //     this.seller_info = data.seller_info;
+  //     this.image_url = data.image_url;
+  //     this.category = data.category;
+  //     Book.all.push(this);
+  //   }
 
   renderBook() {
     return `
@@ -18,6 +29,8 @@ class Book {
                   <h3>${this.title}</h3>
                   <p>$ ${this.price}</p>
                   <p>Genre: ${this.category.name}</p>
+                  <p>${this.description}</p>
+                  <p>Contact Seller: ${this.seller_info}</p>
                   <button data-id=${this.id}>edit</button>
                 </div>
                 <br><br>`;
@@ -48,7 +61,7 @@ class Book {
       <br><br>
   
       <label>Genre</label>
-      <select id="categories" name="categories">
+      <select id="categories" name="categories" value="${this.category.name}">
         <option value="1">Fantasy</option>
         <option value="2">Adventure</option>
         <option value="3">Romance</option>
@@ -71,6 +84,17 @@ class Book {
 
   static findById(id) {
     return Book.all.find((book) => book.id == id);
+  }
+
+  //prettier-ignore
+  update({ title, author, price, description, seller_info, image_url, category }) {
+    this.title = title;
+    this.author = author;
+    this.price = price;
+    this.description = description;
+    this.seller_info = seller_info;
+    this.image_url = image_url;
+    this.category = category;
   }
 }
 
