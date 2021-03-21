@@ -13,28 +13,15 @@ function getBooks() {
     .then((response) => response.json())
     .then((books) => {
       // remember our JSON data is a bit nested due to our serializer
-      books.data
-        .forEach((book) => {
-          // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-          render(book);
-        })
-        .catch((err) => console.log(err));
+      books.data.forEach((book) => {
+        // debugger;
+        const newBook = new Book(book.id, book.attributes);
+        document.querySelector(
+          "#book-container"
+        ).innerHTML += newBook.renderBook();
+      });
+      // .catch((err) => console.log(err));
     });
-}
-
-function render(book) {
-  const bookMarkup = `
-    <div data-id=${book.id}>
-      <img src=${book.attributes.image_url} height="300" width="250">
-      <h3>${book.attributes.title}</h3>
-      <p>Author: ${book.attributes.author}</p>
-      <p>$ ${book.attributes.price}</p>
-      <p> Category: ${book.attributes.category.name}</p>
-      <button data-id=${book.id}>edit</button>
-    </div>
-    <br><br>`;
-
-  document.querySelector("#book-container").innerHTML += bookMarkup;
 }
 
 function createFormHandler(e) {
@@ -65,8 +52,11 @@ function postBook(title, author, price, description, seller_info, image_url, cat
   .then(book => {
     console.log(book);
     const bookData = book.data
-    // render JSON response
-    render(bookData)
+    
+    const newBook = new Book(bookData.id, bookData.attributes);
+    document.querySelector(
+      "#book-container"
+    ).innerHTML += newBook.renderBook();
 
   })
 
