@@ -1,60 +1,120 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Trade It!</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Album example · Bootstrap v4.6</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/album/">
+
     
-    <script type="text/javascript" src="src/book.js"></script>
+
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+     <!--js project scripts-->
+     <script type="text/javascript" src="src/book.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/app.js"></script>
     <script type="text/javascript" src="src/adapter.js"></script>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+     <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
 
     
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet">
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
+    
+<header>
+  <!--NAV-->
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Album</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+  <!--END NAV-->
+</header>
 
-    <div class="form-container">
+<main role="main">
 
-        <form id="create-book-form" style="">
-          <h3>Add a book!</h3>
-      
-          Title: 
-          <br><input id='input-title' type="text" name="title" value="" placeholder="Enter book title..." class="input-text">
-          <br><br>
-          Author: 
-          <br><input id='input-author' type="text" name="author" value="" placeholder="Enter author's name..." class="input-text">
-          <br><br>
-          Price: 
-          <br><input id='input-price' type="text" name="price" value="" placeholder="Enter your price..." class="input-text">
-          <br><br>
-          Description: 
-          <br><textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter book description (eg. story line, condition, etc)..."></textarea>
-          <br><br>
-          Seller Info
-          <br><textarea id='input-seller_info' type="text" name="seller_info" rows="8" cols="80" value="" placeholder="Enter your contact info..."></textarea>
-          <br><br>
-          Image: 
-          <br><input id='input-url' type="text" name="image" value="" placeholder="Enter an book cover image URL..." class="input-text">
-          <br><br>
-      
-          <p>Pick a Genre:</p>
-          <select id="categories" name="categories">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <form id="create-book-form">
+        <div class="form-group row">
+          <!-- <label for="title" class="col-sm-2 col-form-label">Title</label> -->
+          <input type="text" class="form-control" id="input-title'" aria-describedby="emailHelp" placeholder="Title">
+        </div>
+        <div class="form-group row">
+          <!-- <label for="author" class="col-sm-2 col-form-label">Author</label> -->
+          <input type="text" class="form-control" id="input-author" aria-describedby="emailHelp" placeholder="Author">
+        </div>
+        <div class="form-group row">
+          <!-- <label for="description" class="col-sm-2 col-form-label">Description</label> -->
+    <textarea class="form-control" id="input-description" rows="3" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group row">
+          <!-- <label for="image" class="col-sm-2 col-form-label">Image Link</label> -->
+          <input type="text" class="form-control" id="input-url" aria-describedby="emailHelp" placeholder="Image URL">
+        </div>
+        <div class="form-group row">
+          <!-- <label for="categories" class="col-sm-2 col-form-label">Genre</label> -->
+        <select class="form-control form-control-sm" id="categories" placeholder="Genre">
             <option value="1">Fantasy</option>
             <option value="2">Adventure</option>
             <option value="3">Romance</option>
@@ -67,38 +127,82 @@
             <option value="10">Educational</option>
             <option value="11">Motivational</option>
             <option value="12">Children</option>
+        </select>
+      </div>
+        <div class="form-group row">
+          <!-- <label for="price" class="col-sm-2 col-form-label">Price</label> -->
+          <input type="text" class="form-control" id="input-price" aria-describedby="emailHelp" placeholder="Price">
+        </div>
+        <div class="form-group row">
+          <!-- <label for="seller_info" class="col-sm-2 col-form-label">Seller Contact Info</label> -->
+          <input type="text" class="form-control" id="input-seller_info" aria-describedby="emailHelp" placeholder="Seller Contact Info">
+        </div>
+        
+        <br><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
+        <!--<a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
+      </p>
+    </div>
 
-          </select>
-          <br><br>
+  </section>
+
+    <div class= "container">
+      <div class="row" id="category-container"></div>
+      <br><br>
+    </div>
+
+  
+  <div class="album py-5 bg-light">
+    
+    <div class="container">
+
+      <div class="row" id="book-container" >
+        
+        <!-- <div class="col-md-4">
           
-          <input id= 'create-button' type="submit" name="submit" value="Create Book" class="submit">
-          <br><br>
-        </form>
-      
-    </div>
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-    
-    <div id="book-container">
-      
-    </div>
-
-    <div id="update-book">
-
-    </div>
-    
-    
-    <!--<script src="" async defer></script>-->
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- END OF ROW -->
    
-    
+    </div>
+  </div>
+</div>
+  <div id="update-book">
+
+  </div>
+  
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Trade your books in for new ones!&copy;</p>
+
+    </div>
+</footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+
+      
   </body>
 </html>
