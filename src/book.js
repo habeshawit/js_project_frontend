@@ -78,41 +78,48 @@ class Book {
       </div>
       <div class="modal-body">
       <form data-id=${this.id} >
-      <label>Title</label>
-      <br><input id='input-title' type="text" name="title" value="${this.title}" placeholder="Enter book title..." class="input-text">
-      <br><br>
-      <label>Author</label>
-      <br><input id='input-author' type="text" name="author" value="${this.author}" placeholder="Enter author's name..." class="input-text">
-      <br><br>
-      <label>Price</label>
-      <br><input id='input-price' type="text" name="price" value="${this.price}" placeholder="Enter your price..." class="input-text">
-      <br><br>
-      <label>Description</label>
-      <br><textarea id='input-description' name="description" rows="8" cols="80" value="${this.description}" placeholder="Enter book description (eg. story line, condition, etc)..."></textarea>
-      <br><br>
-      <label>Seller Info</label>
-      <br><textarea id='input-seller_info' type="text" name="seller_info" rows="8" cols="80" value="${this.seller_info}" placeholder="Enter your contact info..."></textarea>
-      <br><br>
-      <label>Image</label>
-      <br><input id='input-url' type="text" name="image" value="${this.image_url}" placeholder="Enter an book cover image URL..." class="input-text">
-      <br><br>
-  
-      <label>Genre</label>
-      <select id="categories" name="categories" value="${this.category.name}">
-        <option value="1">Fantasy</option>
-        <option value="2">Adventure</option>
-        <option value="3">Romance</option>
-        <option value="4">Mystery</option>
-        <option value="5">Horror</option>
-        <option value="6">Thriller</option>
-        <option value="7">Historical fiction</option>
-        <option value="8">Sci Fi</option>
-        <option value="9">Memoir</option>
-        <option value="10">Educational</option>
-        <option value="11">Motivational</option>
-        <option value="12">Children</option>
+      
+      <div class="form-group row">
+            <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="form-control">
+          </div>
 
-      </select>
+          <div class="form-group row">
+            <input id='input-author' type="text" name="author" value="${this.author}" placeholder="Author" class="form-control">
+          </div>
+          
+          <div class="form-group row">
+            <textarea id='input-description' name="description" rows="5" cols="80" value="${this.description}" placeholder="Description (eg. story line, condition, etc)..." class="form-control"></textarea>
+          </div>
+
+         <div class="form-group row">
+            <input id='input-url' type="text" name="image" value="${this.image_url}" placeholder="Image URL" class="form-control">
+          </div>
+
+          <div class="form-group row">
+            <input id='input-price' type="text" name="price" value="${this.price}" placeholder="Price" class="form-control">
+          </div>
+
+          <div class="form-group row">
+            <input id='input-seller_info' type="text" name="seller_info" value="${this.seller_info}" placeholder="Seller Contact Info..." class="form-control">
+          </div>
+          
+          
+          <div class="form-group row">
+            <select class="form-control form-control-sm" id="categories" name="categories" value="${this.category}">
+              <option value="1">Fantasy</option>
+              <option value="2">Adventure</option>
+              <option value="3">Romance</option>
+              <option value="4">Mystery</option>
+              <option value="5">Horror</option>
+              <option value="6">Thriller</option>
+              <option value="7">Historical fiction</option>
+              <option value="8">Sci Fi</option>
+              <option value="9">Memoir</option>
+              <option value="10">Educational</option>
+              <option value="11">Motivational</option>
+              <option value="12">Children</option>
+            </select>
+          </div>
       <br><br>    
       <div class="modal-footer">  
         <input id='edit-button' class="btn btn-primary" type="submit" name="submit" value="Save Changes" class="submit">
