@@ -69,13 +69,13 @@ img.card-img-top {
   object-fit: fill;
 }
 
-.card-body {
+/* .card-body {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
   height: 150px;
-}
+} */
 
 /* *,
 *::after,

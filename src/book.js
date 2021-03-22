@@ -31,15 +31,19 @@ class Book {
         <img src=${this.image_url} class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
+            <p class="card-text">${this.author}</p>
             <p class="card-text"> $ ${this.price}</p>
             <p class="card-text">${this.description}</p>
             <p class="card-text">${this.seller_info}</p>
             <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
+            <!--<div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary" data-id=${this.id}>Edit</button>
-            </div>
+            </div>-->
 
-            
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id=${this.id}>
+              Edit
+            </button>
             <small class="text-muted">Genre: ${this.category.name}</small>
             </div>
         </div>
@@ -62,9 +66,18 @@ class Book {
   renderUpdateForm() {
     return `
     
-    <form data-id=${this.id} >
-      <h3>Edit Book Info:</h3>
-
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Book</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form data-id=${this.id} >
       <label>Title</label>
       <br><input id='input-title' type="text" name="title" value="${this.title}" placeholder="Enter book title..." class="input-text">
       <br><br>
@@ -100,9 +113,17 @@ class Book {
         <option value="12">Children</option>
 
       </select>
-      <br><br>      <input id='edit-button' type="submit" name="submit" value="Edit Book" class="submit">
-      <br><br>
+      <br><br>    
+      <div class="modal-footer">  
+        <input id='edit-button' class="btn btn-primary" type="submit" name="submit" value="Save Changes" class="submit">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
+      </div>
       </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
   `;
   }
 
