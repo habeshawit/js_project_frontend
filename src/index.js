@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //       book
   //     ).renderBook();
   //   });
+
   app.adapter.fetchBooks().then(app.createBooks);
 });
 
@@ -31,59 +32,58 @@ document.addEventListener("DOMContentLoaded", () => {
 // document
 //   .querySelector("#update-book")
 //   .addEventListener("submit", (e) => updateFormHandler(e));
-// });
+// // });
 
-function getBooks() {
-  fetch(endPoint)
-    .then((response) => response.json())
-    .then((books) => {
-      // remember our JSON data is a bit nested due to our serializer
-      books.data.forEach((book) => {
-        // debugger;
-        const newBook = new Book(book.id, book.attributes);
-        document.querySelector(
-          "#book-container"
-        ).innerHTML += newBook.renderBook();
-      });
-      // .catch((err) => console.log(err));
-    });
-}
+// function getBooks() {
+//   fetch(endPoint)
+//     .then((response) => response.json())
+//     .then((books) => {
+//       // remember our JSON data is a bit nested due to our serializer
+//       books.data.forEach((book) => {
+//         // debugger;
+//         const newBook = new Book(book.id, book.attributes);
+//         document.querySelector(
+//           "#book-container"
+//         ).innerHTML += newBook.renderBook();
+//       });
+//       // .catch((err) => console.log(err));
+//     });
+// }
 
-function createFormHandler(e) {
-  e.preventDefault();
-  const title = document.querySelector("#input-title").value;
-  const author = document.querySelector("#input-author").value;
-  const price = document.querySelector("#input-price").value;
-  const description = document.querySelector("#input-description").value;
-  const seller_info = document.querySelector("#input-seller_info").value;
-  const image = document.querySelector("#input-url").value;
-  const categoryId = parseInt(document.querySelector("#categories").value);
-  // const categoryId = parseInt(category); //parse into integer
-  postFetch(title, author, price, description, seller_info, image, categoryId);
-}
+// function createFormHandler(e) {
+//   e.preventDefault();
+//   const title = document.querySelector("#input-title").value;
+//   const author = document.querySelector("#input-author").value;
+//   const price = document.querySelector("#input-price").value;
+//   const description = document.querySelector("#input-description").value;
+//   const seller_info = document.querySelector("#input-seller_info").value;
+//   const image = document.querySelector("#input-url").value;
+//   const categoryId = parseInt(document.querySelector("#categories").value);
 
-// prettier-ignore
-function postFetch(title, author, price, description, seller_info, image_url, category_id){
-  let bodyData = {title, author, price, description, seller_info, image_url, category_id}
+//   postFetch(title, author, price, description, seller_info, image, categoryId);
+// }
 
-  fetch(endPoint, {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(bodyData)
-  })
-  .then(response => response.json())
-  .then(book => {
-    // console.log(book);
-    const bookData = book.data
-    
-    const newBook = new Book(bookData.id, bookData.attributes);
-    document.querySelector(
-      "#book-container"
-    ).innerHTML += newBook.renderBook();
+// // prettier-ignore
+// function postFetch(title, author, price, description, seller_info, image_url, category_id){
+//   let bodyData = {title, author, price, description, seller_info, image_url, category_id}
 
-  })
+//   fetch(endPoint, {
+//     method: "POST",
+//     headers: {"Content-Type": "application/json"},
+//     body: JSON.stringify(bodyData)
+//   })
+//   .then(response => response.json())
+//   .then(book => {
+//     // console.log(book);
+//     const bookData = book.data
 
-}
+//     const newBook = new Book(bookData.id, bookData.attributes);
+//     document.querySelector(
+//       "#book-container"
+//     ).innerHTML += newBook.renderBook();
+
+//   })
+// }
 
 // // prettier-ignore
 // function updateFormHandler(e) {
@@ -124,4 +124,35 @@ function postFetch(title, author, price, description, seller_info, image_url, ca
 
 //     // debugger
 
+// }
+
+// const openModalButton = document.querySelectorAll("[data-modal-target]");
+// const closeModalButton = document.querySelectorAll("[data-close-button]");
+// const overlay = document.querySelectorAll("overlay");
+
+// openModalButton.forEach((button) => {
+//   debugger;
+//   button.addEventListener("click", () => {
+//     const modal = button.closest(".modal");
+//     closeModalButton(modal);
+//   });
+// });
+
+// closeModalButton.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     const modal = document.querySelector(button.dataset.modalTarget);
+//     openModalButton(modal);
+//   });
+// });
+
+// function openModal(modal) {
+//   if (modal == null) return;
+//   modal.classList.add("active");
+//   overlay.classList.add("active");
+// }
+
+// function closeModal(modal) {
+//   if (modal == null) return;
+//   modal.classList.remove("active");
+//   overlay.classList.remove("active");
 // }

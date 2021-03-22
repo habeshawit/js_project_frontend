@@ -23,15 +23,11 @@ class Book {
   //   }
 
   renderBook() {
-    document.querySelector(
-      "#category-container"
-    ).innerHTML += this.renderCategory();
-
     return `
     
-    <div class="col-md-3">
+    <div class="col-md-3 d-flex">
             
-        <div class="card mb-4 shadow-sm">
+        <div class="card mb-5 shadow-sm flex-fill">
         <img src=${this.image_url} class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
@@ -40,9 +36,10 @@ class Book {
             <p class="card-text">${this.seller_info}</p>
             <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-id=${this.id}>Edit</button>
             </div>
+
+            
             <small class="text-muted">Genre: ${this.category.name}</small>
             </div>
         </div>
@@ -124,18 +121,18 @@ class Book {
     this.category = category;
   }
 
-  renderCategory() {
-    return `
-        
-        <div class="col-md-2">
-          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
-          ${(document.querySelector(
-            "#category-container"
-          ).innerHTML = this.category.name)}
-          </button>
-        </div>
-      `;
-  }
+  // renderCategory() {
+  //   return `
+
+  //       <div class="col-md-2">
+  //         <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+  //         ${(document.querySelector(
+  //           "#category-container"
+  //         ).innerHTML = this.category.name)}
+  //         </button>
+  //       </div>
+  //     `;
+  // }
 }
 
 Book.all = [];

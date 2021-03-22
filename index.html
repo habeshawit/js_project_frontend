@@ -64,24 +64,24 @@
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
           <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+          <p class="text-muted">Love to read? Read all your favorites. Buy at low discount prices</p>
         </div>
-        <div class="col-sm-4 offset-md-1 py-4">
+        <!-- <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Contact</h4>
           <ul class="list-unstyled">
             <li><a href="#" class="text-white">Follow on Twitter</a></li>
             <li><a href="#" class="text-white">Like on Facebook</a></li>
             <li><a href="#" class="text-white">Email me</a></li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
       <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Album</strong>
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> -->
+        <strong>Trade It!</strong>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -95,53 +95,58 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <form id="create-book-form">
-        <div class="form-group row">
-          <!-- <label for="title" class="col-sm-2 col-form-label">Title</label> -->
-          <input type="text" class="form-control" id="input-title'" aria-describedby="emailHelp" placeholder="Title">
-        </div>
-        <div class="form-group row">
-          <!-- <label for="author" class="col-sm-2 col-form-label">Author</label> -->
-          <input type="text" class="form-control" id="input-author" aria-describedby="emailHelp" placeholder="Author">
-        </div>
-        <div class="form-group row">
-          <!-- <label for="description" class="col-sm-2 col-form-label">Description</label> -->
-    <textarea class="form-control" id="input-description" rows="3" placeholder="Description"></textarea>
-        </div>
-        <div class="form-group row">
-          <!-- <label for="image" class="col-sm-2 col-form-label">Image Link</label> -->
-          <input type="text" class="form-control" id="input-url" aria-describedby="emailHelp" placeholder="Image URL">
-        </div>
-        <div class="form-group row">
-          <!-- <label for="categories" class="col-sm-2 col-form-label">Genre</label> -->
-        <select class="form-control form-control-sm" id="categories" placeholder="Genre">
-            <option value="1">Fantasy</option>
-            <option value="2">Adventure</option>
-            <option value="3">Romance</option>
-            <option value="4">Mystery</option>
-            <option value="5">Horror</option>
-            <option value="6">Thriller</option>
-            <option value="7">Historical fiction</option>
-            <option value="8">Sci Fi</option>
-            <option value="9">Memoir</option>
-            <option value="10">Educational</option>
-            <option value="11">Motivational</option>
-            <option value="12">Children</option>
-        </select>
-      </div>
-        <div class="form-group row">
-          <!-- <label for="price" class="col-sm-2 col-form-label">Price</label> -->
-          <input type="text" class="form-control" id="input-price" aria-describedby="emailHelp" placeholder="Price">
-        </div>
-        <div class="form-group row">
-          <!-- <label for="seller_info" class="col-sm-2 col-form-label">Seller Contact Info</label> -->
-          <input type="text" class="form-control" id="input-seller_info" aria-describedby="emailHelp" placeholder="Seller Contact Info">
-        </div>
-        
-        <br><br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+        <form id="create-book-form" style="">
+          <h3>Add a book!</h3>
+          <div class="form-group row">
+            <input id='input-title' type="text" name="title" value="" placeholder="Title" class="form-control">
+          </div>
+
+          <div class="form-group row">
+            <input id='input-author' type="text" name="author" value="" placeholder="Author" class="form-control">
+          </div>
+          
+          <div class="form-group row">
+            <textarea id='input-description' name="description" rows="5" cols="80" value="" placeholder="Description (eg. story line, condition, etc)..." class="form-control"></textarea>
+          </div>
+
+         <div class="form-group row">
+            <input id='input-url' type="text" name="image" value="" placeholder="Image URL" class="form-control">
+          </div>
+
+          <div class="form-group row">
+            <input id='input-price' type="text" name="price" value="" placeholder="Price" class="form-control">
+          </div>
+
+          <div class="form-group row">
+            <input id='input-seller_info' type="text" name="seller_info" value="" placeholder="Seller Contact Info..." class="form-control">
+          </div>
+          
+          
+          <div class="form-group row">
+            <select class="form-control form-control-sm" id="categories" name="categories">
+              <option value="1">Fantasy</option>
+              <option value="2">Adventure</option>
+              <option value="3">Romance</option>
+              <option value="4">Mystery</option>
+              <option value="5">Horror</option>
+              <option value="6">Thriller</option>
+              <option value="7">Historical fiction</option>
+              <option value="8">Sci Fi</option>
+              <option value="9">Memoir</option>
+              <option value="10">Educational</option>
+              <option value="11">Motivational</option>
+              <option value="12">Children</option>
+            </select>
+          </div>
+          
+          <input id= 'create-button' type="submit" name="submit" value="Create Book" class="btn btn-primary">
+
+        </form>
       
+        
+        
+
+
         <!--<a href="#" class="btn btn-primary my-2">Main call to action</a>
         <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
       </p>
@@ -149,36 +154,79 @@
 
   </section>
 
-    <div class= "container">
-      <div class="row" id="category-container"></div>
-      <br><br>
-    </div>
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
 
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Book</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <label>Title</label>
+      <br><input id='input-title' type="text" name="title" value="${this.title}" placeholder="Enter book title..." class="input-text">
+      <br><br>
+      <label>Author</label>
+      <br><input id='input-author' type="text" name="author" value="${this.author}" placeholder="Enter author's name..." class="input-text">
+      <br><br>
+      <label>Price</label>
+      <br><input id='input-price' type="text" name="price" value="${this.price}" placeholder="Enter your price..." class="input-text">
+      <br><br>
+      <label>Description</label>
+      <br><textarea id='input-description' name="description" rows="8" cols="80" value="${this.description}" placeholder="Enter book description (eg. story line, condition, etc)..."></textarea>
+      <br><br>
+      <label>Seller Info</label>
+      <br><textarea id='input-seller_info' type="text" name="seller_info" rows="8" cols="80" value="${this.seller_info}" placeholder="Enter your contact info..."></textarea>
+      <br><br>
+      <label>Image</label>
+      <br><input id='input-url' type="text" name="image" value="${this.image_url}" placeholder="Enter an book cover image URL..." class="input-text">
+      <br><br>
   
+      <label>Genre</label>
+      <select id="categories" name="categories" value="${this.category.name}">
+        <option value="1">Fantasy</option>
+        <option value="2">Adventure</option>
+        <option value="3">Romance</option>
+        <option value="4">Mystery</option>
+        <option value="5">Horror</option>
+        <option value="6">Thriller</option>
+        <option value="7">Historical fiction</option>
+        <option value="8">Sci Fi</option>
+        <option value="9">Memoir</option>
+        <option value="10">Educational</option>
+        <option value="11">Motivational</option>
+        <option value="12">Children</option>
+
+      </select>
+      <br><br>      <input id='edit-button' type="submit" name="submit" value="Edit Book" class="submit">
+      <br><br>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+    
+    
   <div class="album py-5 bg-light">
     
     <div class="container">
 
       <div class="row" id="book-container" >
         
-        <!-- <div class="col-md-4">
-          
-          <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- END OF ROW -->
+        
    
     </div>
   </div>
@@ -186,6 +234,20 @@
   <div id="update-book">
 
   </div>
+
+  <!-- <button data-model-target="#modal">Open Modal</button>
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">Example Modal</div>
+      <button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore iste ipsum quaerat molestias eum ad illo harum aliquid vitae. Autem at repellendus nisi nostrum sequi libero, modi nesciunt delectus suscipit magnam quibusdam! In adipisci doloremque illo hic aliquam facilis sint corrupti tempora consectetur pariatur reprehenderit aspernatur quis necessitatibus repudiandae quos odit, vel dolorum sequi labore? Ullam, magnam molestiae, voluptatibus enim, repellat provident rerum itaque commodi suscipit iusto expedita nobis illum! Ea atque, dolore molestiae ex esse reiciendis possimus laudantium sit deleniti totam praesentium saepe reprehenderit, delectus ipsa.
+    </div> 
+  </div>
+  <div id="overlay"></div> -->
+
+
   
 </main>
 
@@ -206,3 +268,8 @@
       
   </body>
 </html>
+
+
+
+
+

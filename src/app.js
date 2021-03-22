@@ -51,12 +51,15 @@ constructor() {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.createBooks = this.createBooks.bind(this);
     this.addBooks = this.addBooks.bind(this);
+    this.createFormHandler = this.createFormHandler.bind(this);
   }
 
   attachEventListeners() {
     document.querySelector('#book-container').addEventListener('click', this.handleEditClick);
     document.querySelector('#update-book').addEventListener('submit', this.handleFormSubmit);
-  }
+    document.querySelector("#create-book-form").addEventListener('submit', this.createFormHandler);
+    
+}
 
   createBooks(books) {
     console.log(books);
@@ -101,5 +104,37 @@ constructor() {
     document.querySelector('#update-book').innerHTML = book.renderUpdateForm();
   }
 
+  createFormHandler(e) {
+    e.preventDefault();
+    const title = document.querySelector("#input-title").value;
+    const author = document.querySelector("#input-author").value;
+    const price = document.querySelector("#input-price").value;
+    const description = document.querySelector("#input-description").value;
+    const seller_info = document.querySelector("#input-seller_info").value;
+    const image = document.querySelector("#input-url").value;
+    const categoryId = parseInt(document.querySelector("#categories").value);
+    this.postFetch(title, author, price, description, seller_info, image, categoryId);
+  }
+
+  postFetch(title, author, price, description, seller_info, image_url, category_id){
+    let bodyData = {title, author, price, description, seller_info, image_url, category_id}
+  
+    fetch(endPoint, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(book => {
+      const bookData = book.data
+      
+      const newBook = new Book(bookData.id, bookData.attributes);
+      document.querySelector(
+        "#book-container"
+      ).innerHTML += newBook.renderBook();
+  
+    })
+  
+  }
 
 }

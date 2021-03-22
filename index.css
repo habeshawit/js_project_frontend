@@ -1,14 +1,27 @@
 .jumbotron {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
   margin-bottom: 0;
-  background-color: #fff;
+  background-color: lightblue;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg");
 }
 @media (min-width: 768px) {
   .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
+  .container {
+    max-width: 1400px;
+  }
+
+  /* .card-deck > .card {
+    width: 29%;
+    flex-wrap: wrap;
+    flex: initial;
+  } */
 }
 
 .jumbotron p:last-child {
@@ -20,7 +33,7 @@
 }
 
 .jumbotron .container {
-  max-width: 40rem;
+  max-width: 35rem;
 }
 
 footer {
@@ -31,3 +44,54 @@ footer {
 footer p {
   margin-bottom: 0.25rem;
 }
+
+.bg-dark {
+  background-color: #4e79a5 !important;
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+img.card-img-top {
+  width: 100%;
+  height: 60%;
+  object-fit: fill;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  height: 150px;
+}
+
+/* *,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: traslate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+} */
