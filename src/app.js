@@ -47,7 +47,8 @@ class App {
 constructor() {
     this.adapter = new Adapter();
 
-    this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleEditClick = this.handleBookClick.bind(this);
+    this.handleImageClick = this.handleImageClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.createBooks = this.createBooks.bind(this);
     this.addBooks = this.addBooks.bind(this);
@@ -55,9 +56,11 @@ constructor() {
   }
 
   attachEventListeners() {
-    document.querySelector('#book-container').addEventListener('click', this.handleEditClick);
+    document.querySelector('#book-container').addEventListener('click', this.handleBookClick);
     document.querySelector('#update-book').addEventListener('submit', this.handleFormSubmit);
     document.querySelector("#create-book-form").addEventListener('submit', this.createFormHandler);
+    // document.querySelector('#image-box').addEventListener('click', this.handleEditClick);
+
     
 }
 
@@ -98,10 +101,20 @@ constructor() {
       });
   }
 
-  handleEditClick(e) {
+  handleBookClick(e) {
     const id = parseInt(e.target.dataset.id);
     const book = Book.findById(id);
-    document.querySelector('#update-book').innerHTML = book.renderUpdateForm();
+    if(e.target.id === "myBtn"){
+      console.log("Button Clicked");
+      document.querySelector('#update-book').innerHTML = book.renderUpdateForm();
+    }
+    else if(e.target.id === "image-box")
+    {      
+      document.querySelector('#view-book').innerHTML = book.renderBookDetails();
+      console.log("Image Clicked");
+// debugger
+    }
+    
   }
 
   createFormHandler(e) {
@@ -133,8 +146,15 @@ constructor() {
         "#book-container"
       ).innerHTML += newBook.renderBook();
   
-    })
-  
+    }) 
+  }
+
+  handleImageClick(e){
+    e.preventDefault();
+    const id = parseInt(e.target.dataset.id);
+    const book = Book.findById(id);
+    document.querySelector('#view-book').innerHTML = book.renderBookDetails();
+
   }
 
 }
