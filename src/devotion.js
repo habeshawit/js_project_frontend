@@ -16,7 +16,7 @@ class Devotion {
     <div class="col-md-2 d-flex">
             
         <div class="card mb-5 shadow-sm flex-fill" >
-        <img src=${this.image_url} class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalLong" data-id=${this.id}>
+        <img src=${this.image_url} class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>
         <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
             <p class="card-text">${this.verse}</p>
@@ -27,6 +27,7 @@ class Devotion {
             <button type="button" id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id=${this.id}>
               Edit
             </button>
+            
             <small class="text-muted">${this.category.name}</small>
             </div>
         </div>
@@ -120,20 +121,21 @@ class Devotion {
     return `
     
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">${this.title}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content-detail">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalScrollableTitle">${this.title}</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
       </div>
       <div class="modal-body">
+          <img src=${this.image_url} class="card-text" width="250" height="250"><br><br>
           <p class="card-text"><strong>Date: </strong>${this.date}</p>
           <p class="card-text"><strong>Category: </strong>${this.category.name}</p>
           <p class="card-text"><strong>Verse(s): </strong>${this.verse}</p>
-          <p class="card-text"><strong>Content: </strong>${this.content}</p>
+          <p class="card-text">${this.content}</p>
       </div>
     </div>
   </div>

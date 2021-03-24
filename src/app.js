@@ -33,7 +33,6 @@ constructor() {
   }
 
   handleFormSubmit(e) {
-    // debugger
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
     const devotion = Devotion.findById(id);
@@ -91,7 +90,6 @@ constructor() {
     .then(response => response.json())
     .then(devotion => {
       const devotionData = devotion.data
-      // debugger
       const newDevotion = new Devotion(devotionData.id, devotionData.attributes);
       document.querySelector(
         "#devotion-container"
