@@ -1,23 +1,4 @@
 class Adapter {
-  //   constructor() {
-  //     this.baseUrl = "http://localhost:3000/api/v1";
-  //   }
-  //   fetchBooks() {
-  //     // debugger;
-  //     return fetch(`${this.baseUrl}/books`).then((res) => res.json());
-  //   }
-
-  //   updateBook(id, body) {
-  //     return fetch(`${this.baseUrl}/books/${id}`, {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accept: "application/json",
-  //       },
-  //       body: JSON.stringify(body),
-  //     }).then((res) => res.json());
-  //   }
-
   constructor() {
     this.baseUrl = "http://localhost:3000/api/v1/";
     this.headers = {
@@ -26,12 +7,12 @@ class Adapter {
     };
   }
 
-  fetchBooks() {
-    return this.get(`${this.baseUrl}/books`);
+  fetchDevotions() {
+    return this.get(`${this.baseUrl}/devotions`);
   }
 
-  updateBook(id, body) {
-    return this.patch(`${this.baseUrl}/books/${id}`, body);
+  updateDevotion(id, body) {
+    return this.patch(`${this.baseUrl}/devotions/${id}`, body);
   }
 
   get(url) {
