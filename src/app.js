@@ -1,159 +1,111 @@
 //prettier-ignore
 class App {
-//     constructor() {
-//         this.adapter = new Adapter();
-//       } 
 
-//   attachEventListeners() {
-//     document.querySelector("#book-container").addEventListener("click", (e) => {
-//       const id = parseInt(e.target.dataset.id);
-//       const book = Book.findById(id);
-//       console.log("clicked");
-//       console.log(book);
-//       document.querySelector("#update-book").innerHTML = book.renderUpdateForm();   
-//     });
-//     document.querySelector('#update-book').addEventListener('submit', e => {
-//       e.preventDefault();
-//       const id = parseInt(e.target.dataset.id);
-//       const book = Book.findById(id);
-//       const title = e.target.querySelector("#input-title").value;
-//       const author = e.target.querySelector("#input-author").value;
-//       const price = e.target.querySelector("#input-price").value;
-//       const seller_info = e.target.querySelector("#input-seller_info").value;
-//       const description = e.target.querySelector("#input-description").value;
-//       const image_url = e.target.querySelector("#input-url").value;
-//       const category_id = parseInt(e.target.querySelector("#categories").value);
-    
-//       const jsonBody = {book,title,author,price,seller_info,description,image_url,category_id};
-//       this.adapter.updateBook(book.id, jsonBody).then(updatedNote => console.log(updatedNote));
-  
-//     //   const bodyJSON = {book,title,author,price,seller_info,description,image_url,category_id};
-//     //     fetch(`http://localhost:3000/api/v1/books/${book.id}`, {
-//     //       method: 'PATCH',
-//     //       headers: {
-//     //         'Content-Type': 'application/json',
-//     //         Accept: 'application/json',
-//     //       },
-//     //       body: JSON.stringify(bodyJSON),
-//     //     })
-//     //       .then(res => res.json())
-//     //       // our backend responds with the updated note instance represented as JSON
-//     //       .then(updatedNote => console.log(updatedNote));
-//       });
-
-
-
-//   }
 constructor() {
     this.adapter = new Adapter();
 
-    this.handleEditClick = this.handleBookClick.bind(this);
-    this.handleImageClick = this.handleImageClick.bind(this);
+    this.handleDevotionClick = this.handleDevotionClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.createBooks = this.createBooks.bind(this);
-    this.addBooks = this.addBooks.bind(this);
+    this.createDevotions = this.createDevotions.bind(this);
+    this.addDevotions = this.addDevotions.bind(this);
     this.createFormHandler = this.createFormHandler.bind(this);
   }
 
   attachEventListeners() {
-    document.querySelector('#book-container').addEventListener('click', this.handleBookClick);
-    document.querySelector('#update-book').addEventListener('submit', this.handleFormSubmit);
-    document.querySelector("#create-book-form").addEventListener('submit', this.createFormHandler);
-    // document.querySelector('#image-box').addEventListener('click', this.handleEditClick);
-
-    
+    document.querySelector('#devotion-container').addEventListener('click', this.handleDevotionClick);
+    document.querySelector('#update-devotion').addEventListener('submit', this.handleFormSubmit);
+    document.querySelector("#create-devotion-form").addEventListener('submit', this.createFormHandler);    
 }
 
-  createBooks(books) {
-    console.log(books);
-    books.data.forEach(book => {
-        // const newBook = new Book(book.id, book.attributes);
-      new Book(book.id, book.attributes);
+  createDevotions(devotions) {
+    console.log(devotions);
+    devotions.data.forEach(devotion => {
+      new Devotion(devotion.id, devotion.attributes);
     });
-    this.addBooks();
+    this.addDevotions();
   }
 
-  addBooks() {
-    document.querySelector('#book-container').innerHTML = '';
-    Book.all.forEach(
-      book => (document.querySelector('#book-container').innerHTML += book.renderBook())
+  addDevotions() {
+    document.querySelector('#devotion-container').innerHTML = '';
+    Devotion.all.forEach(
+      devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
     );
   }
 
   handleFormSubmit(e) {
+    // debugger
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
-      const book = Book.findById(id);
-      const title = e.target.querySelector("#input-title").value;
-      const author = e.target.querySelector("#input-author").value;
-      const price = e.target.querySelector("#input-price").value;
-      const seller_info = e.target.querySelector("#input-seller_info").value;
-      const description = e.target.querySelector("#input-description").value;
-      const image_url = e.target.querySelector("#input-url").value;
-      const category_id = parseInt(e.target.querySelector("#categories").value);
+    const devotion = Devotion.findById(id);
+    const title = e.target.querySelector("#input-title").value;
+    const date = e.target.querySelector("#input-date").value;
+    const verse = e.target.querySelector("#input-verse").value;
+    const content = e.target.querySelector("#input-content").value;
+    const image_url = e.target.querySelector("#input-url").value;
+    const category_id = parseInt(e.target.querySelector("#categories").value);
     
-      const jsonBody = {book,title,author,price,seller_info,description,image_url,category_id};
-    //   debugger
-      this.adapter.updateBook(book.id, jsonBody).then(updatedBook => {
-        const book = Book.findById(updatedBook.data.id);
-        book.update(updatedBook.data.attributes);
-        this.addBooks();
-      });
+    const jsonBody = {devotion,title,date,verse,content,image_url,category_id};
+
+    this.adapter.updateDevotion(devotion.id, jsonBody).then(updatedDevotion => {
+      const devotion = Devotion.findById(updatedDevotion.data.id);
+      devotion.update(updatedDevotion.data.attributes);
+      this.addDevotions();
+    });
   }
 
-  handleBookClick(e) {
+  handleDevotionClick(e) {
     const id = parseInt(e.target.dataset.id);
-    const book = Book.findById(id);
+    const devotion = Devotion.findById(id);
     if(e.target.id === "myBtn"){
       console.log("Button Clicked");
-      document.querySelector('#update-book').innerHTML = book.renderUpdateForm();
+      document.querySelector('#update-devotion').innerHTML = devotion.renderUpdateForm();
     }
     else if(e.target.id === "image-box")
     {      
-      document.querySelector('#view-book').innerHTML = book.renderBookDetails();
+      document.querySelector('#view-devotion').innerHTML = devotion.renderDevotionDetails();
       console.log("Image Clicked");
-// debugger
-    }
-    
+
+    }    
   }
 
   createFormHandler(e) {
     e.preventDefault();
+    
     const title = document.querySelector("#input-title").value;
-    const author = document.querySelector("#input-author").value;
-    const price = document.querySelector("#input-price").value;
-    const description = document.querySelector("#input-description").value;
-    const seller_info = document.querySelector("#input-seller_info").value;
+    const date = document.querySelector("#input-date").value;
+    const content = document.querySelector("#input-content").value;
+    const verse = document.querySelector("#input-verse").value;
     const image = document.querySelector("#input-url").value;
     const categoryId = parseInt(document.querySelector("#categories").value);
-    this.postFetch(title, author, price, description, seller_info, image, categoryId);
+    this.postFetch(title, date, content,verse, image, categoryId);
   }
 
-  postFetch(title, author, price, description, seller_info, image_url, category_id){
-    let bodyData = {title, author, price, description, seller_info, image_url, category_id}
-  
+  postFetch(title, date, content, verse, image_url, category_id){
+    let bodyData = {title, date, content, verse, image_url, category_id}
+    
     fetch(endPoint, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(bodyData)
+      body: JSON.stringify(bodyData),     
     })
     .then(response => response.json())
-    .then(book => {
-      const bookData = book.data
-      
-      const newBook = new Book(bookData.id, bookData.attributes);
+    .then(devotion => {
+      const devotionData = devotion.data
+      // debugger
+      const newDevotion = new Devotion(devotionData.id, devotionData.attributes);
       document.querySelector(
-        "#book-container"
-      ).innerHTML += newBook.renderBook();
-  
+        "#devotion-container"
+      ).innerHTML += newDevotion.renderDevotion();
+
+     $('#create-devotion-form')[0].reset();
     }) 
   }
 
   handleImageClick(e){
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
-    const book = Book.findById(id);
-    document.querySelector('#view-book').innerHTML = book.renderBookDetails();
+    const devotion = Devotion.findById(id);
+    document.querySelector('#view-devotion').innerHTML = devotion.renderDevotionDetails();
 
   }
 
