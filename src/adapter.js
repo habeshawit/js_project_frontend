@@ -1,3 +1,4 @@
+//responsible for communicating with the API to put AJAX calls in one place
 class Adapter {
   constructor() {
     this.baseUrl = "http://localhost:3000/api/v1/";

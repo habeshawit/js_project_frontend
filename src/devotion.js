@@ -103,6 +103,7 @@ class Devotion {
   `;
   }
 
+  //Can call it on the devotion class itself
   static findById(id) {
     return Devotion.all.find((devotion) => devotion.id == id);
   }
@@ -122,7 +123,7 @@ class Devotion {
     
     <!-- Modal -->
     <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content-detail">
           <div class="modal-header">
             <h4 class="modal-title" id="exampleModalScrollableTitle">${this.title}</h4>

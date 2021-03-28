@@ -4,6 +4,7 @@ class App {
 constructor() {
     this.adapter = new Adapter();
 
+    //bind sets what this is
     this.handleDevotionClick = this.handleDevotionClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.createDevotions = this.createDevotions.bind(this);
@@ -18,7 +19,6 @@ constructor() {
 }
 
   createDevotions(devotions) {
-    console.log(devotions);
     devotions.data.forEach(devotion => {
       new Devotion(devotion.id, devotion.attributes);
     });
@@ -46,6 +46,7 @@ constructor() {
     const jsonBody = {devotion,title,date,verse,content,image_url,category_id};
 
     this.adapter.updateDevotion(devotion.id, jsonBody).then(updatedDevotion => {
+     console.log(this);
       const devotion = Devotion.findById(updatedDevotion.data.id);
       devotion.update(updatedDevotion.data.attributes);
       this.addDevotions();
@@ -96,6 +97,7 @@ constructor() {
       ).innerHTML += newDevotion.renderDevotion();
 
      $('#create-devotion-form')[0].reset();
+    //  document.querySelector("#create-devotion-form").reset()
     }) 
   }
 
