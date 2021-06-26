@@ -37,71 +37,73 @@ class Devotion {
   }
 
   renderUpdateForm() {
-    return `
     
-    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Devotion</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    return `
+
+    <div style="width:100%">
+	<!-- code here -->
+	<div class="card">
+	
+		<form class="card-form" id="edit-devotion-form" data-id=${this.id}>
+			<div class="input" >
+        <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="input-field">
+				<label class="input-label">Title</label>
+			</div>
+
+      <div class="input">
+        <input id='input-date' type="text" name="date" value="${this.date}" placeholder="Date" class="input-field">
+				<label class="input-label">Date</label>
       </div>
-      <div class="modal-body">
-      <form data-id=${this.id} >
-      
-      <div class="form-group row">
-            <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="form-control"><hr>
-          </div>
 
-          <div class="form-group row">
-            <input id='input-date' type="text" name="date" value="${this.date}" placeholder="Date" class="form-control">
-          </div>
-
-          <div class="form-group row">
-            <input id='input-verse' type="text" name="verse" value="${this.verse}" placeholder="Verse" class="form-control">
-          </div>
-
-          <div class="form-group row">
-            <textarea id='input-content' name="content" rows="8" cols="80" value=${this.content} class="form-control">${this.content}</textarea>
-          </div>
-
-         <div class="form-group row">
-            <input id='input-url' type="text" name="image" value="${this.image_url}" placeholder="Image URL" class="form-control">
-          </div>
-          
-          <div class="form-group row">
-            <select class="form-control form-control-sm" id="categories" name="categories" value=${this.category}>
-              <option value="${this.category.id}">${this.category.name}</option>
-              <option value="1">Prayer</option>
-              <option value="2">Love</option>
-              <option value="3">Personal Growth</option>
-              <option value="4">Righteousness</option>
-              <option value="5">Daily living</option>
-              <option value="6">Culture</option>
-              <option value="7">Theology</option>
-              <option value="8">Accountability</option>
-              <option value="9">Knowing God</option>
-              <option value="10">Maturity</option>
-              <option value="11">Family</option>
-              <option value="12">Church</option>
-              <option value="13">Struggle</option>
-            </select>
-          </div>  
-          
-      <div class="modal-footer">  
-        <input id='edit-button' class="btn btn-primary" type="submit" name="submit" value="Save Changes" class="submit">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
+      <div class="input">
+        <input id='input-verse' type="text" name="verse" value="${this.verse}" placeholder="Verse" class="input-field">
+				<label class="input-label">Verse</label>
       </div>
-      </form>
+
+      <div class="input" >
+        <textarea id='input-content' name="content" value=${this.content} class="input-field" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>${this.content}</textarea>
+        <label class="input-label" style="transform: translateY(-1.5rem); color: #6658d3;">Content</label>
+      </div>
+
+    <div class="input">
+        <input id='input-url' type="text" name="image" value="${this.image_url}" placeholder="Image URL" class="input-field">
+        <label class="input-label">Image URL</label>
       </div>
       
-    </div>
-  </div>
+      <div class="input">
+        <select class="input-field" id="categories" name="categories" value=${this.category}>
+          <option value="${this.category.id}">${this.category.name}</option>
+          <option value="1">Prayer</option>
+          <option value="2">Love</option>
+          <option value="3">Personal Growth</option>
+          <option value="4">Righteousness</option>
+          <option value="5">Daily living</option>
+          <option value="6">Culture</option>
+          <option value="7">Theology</option>
+          <option value="8">Accountability</option>
+          <option value="9">Knowing God</option>
+          <option value="10">Maturity</option>
+          <option value="11">Family</option>
+          <option value="12">Church</option>
+          <option value="13">Struggle</option>
+        </select>
+        <label class="input-label">Category</label>
+      </div>  
+  
+			<div class="action">
+      <input id= 'edit-save' class="action-button" type="submit" name="submit" value="Save Changes"  class="submit">
+
+			</div>
+		</form>
+		
+	</div>
 </div>
+
+    
+
+    
   `;
+  
   }
 
   //Can call it on the devotion class itself
@@ -126,12 +128,12 @@ class Devotion {
     <div classs="detail-header" style="line-height:0.25!important; margin-bottom:25px!important">
       <h4>${this.title}
 
-      <button type="button" style="background: transparent;
+      <button id="edit-btn" type="button" style="background: transparent;
         border: none;" data-id=${this.id}>
-        <i class="fa fa-edit" ></i> 
+        <i class="fa fa-edit" id="edit-btn" data-id=${this.id}></i> 
       </button></h4>
       <p class="text-muted" ><strong></strong>${this.date}</p>
-      <p>${this.category.name}</p>
+      <p class="text-muted">${this.category.name}</p>
 
     </div>
             
