@@ -71,8 +71,6 @@ constructor() {
   }
 
   handleFormSubmit(e) {
-    debugger
-    
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
     const devotion = Devotion.findById(id);
@@ -91,6 +89,8 @@ constructor() {
       devotion.update(updatedDevotion.data.attributes);
       this.addDevotions();
       document.querySelector('#view-devotion').innerHTML = devotion.renderDevotionDetails();
+      document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
+
     });
     
     
@@ -103,7 +103,6 @@ constructor() {
       console.log("Edit Button Clicked");
       document.querySelector('#view-devotion').innerHTML = devotion.renderUpdateForm();
       document.querySelector("#edit-devotion-form").addEventListener('submit', this.handleFormSubmit);  
-
     }
     else if(e.target.id === "image-box")
     {      
