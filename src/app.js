@@ -10,12 +10,15 @@ constructor() {
     this.createDevotions = this.createDevotions.bind(this);
     this.addDevotions = this.addDevotions.bind(this);
     this.createFormHandler = this.createFormHandler.bind(this);
+    this.handleCategoryFilter = this.handleCategoryFilter.bind(this);
   }
 
   attachEventListeners() {
     document.querySelector('#devotion-container').addEventListener('click', this.handleDevotionClick);
     document.querySelector('#update-devotion').addEventListener('submit', this.handleFormSubmit);
-    document.querySelector("#create-devotion-form").addEventListener('submit', this.createFormHandler);    
+    document.querySelector("#create-devotion-form").addEventListener('submit', this.createFormHandler);  
+    document.querySelector("#filter-button").addEventListener('click', this.handleCategoryFilter)  
+    // document.querySelector("#card-title").addEventListener('click', this.handleCategoryFilter)  
 }
 
   createDevotions(devotions) {
@@ -25,6 +28,7 @@ constructor() {
     this.addDevotions();
   }
 
+ 
   addDevotions() {
     document.querySelector('#devotion-container').innerHTML = '';
     Devotion.all.forEach(
@@ -68,6 +72,16 @@ constructor() {
     }    
   }
 
+  handleCategoryFilter(e) {
+    const id = parseInt(document.querySelector('#categories-filter').value)
+    const result = Devotion.all.filter(devotion => devotion.category.id === id);
+    document.querySelector('#devotion-container').innerHTML = ""
+    result.forEach(
+      devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
+    );
+
+  }
+
   createFormHandler(e) {
     e.preventDefault();
     
@@ -96,8 +110,8 @@ constructor() {
         "#devotion-container"
       ).innerHTML += newDevotion.renderDevotion();
 
-     $('#create-devotion-form')[0].reset();
-    //  document.querySelector("#create-devotion-form").reset()
+    //  $('#create-devotion-form')[0].reset();
+     document.querySelector("#create-devotion-form").reset()
     }) 
   }
 

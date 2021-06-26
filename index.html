@@ -69,23 +69,119 @@
       </div>
     </div>
   </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> -->
-        <strong>My Devotional App</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">My Daily Devotional</span>
     </div>
+  </nav>
+
   </div>
   <!--END NAV-->
 </header>
 
 <main role="main">
 
-  <section class="jumbotron text-center">
+  <!-- <div class="container"> -->
+    <div class="row" style="width:98%; text-align: center;" >
+      <div class="col-sm-3" id="column1">
+       <form id="create-devotion-form" style="">
+          
+          <h3>Add a devotion!</h3>
+          <div class="form-group row">
+            <input id='input-title' type="text" name="title" value="" placeholder="Title" class="form-control">
+          </div>
+
+          <div class="form-group row">
+            <input id='input-date' type="text" name="date" value="" placeholder="Date" class="form-control">
+          </div>
+
+          <div class="form-group row">
+            <input id='input-verse' type="text" name="verse" value="" placeholder="Verse" class="form-control">
+          </div>
+
+          <div class="form-group row">
+            <textarea id='input-content' name="content" rows="5" cols="80" value="" placeholder="Enter your thoughts..." class="form-control"></textarea>
+          </div>
+
+         <div class="form-group row">
+            <input id='input-url' type="text" name="image" value="" placeholder="Image URL" class="form-control">
+          </div>
+          
+          <div class="form-group row">
+            <select class="form-control form-control-sm" id="categories" name="categories">
+              <option value="" selected disabled hidden>Choose Category</option>
+              <option value="1">Prayer</option>
+              <option value="2">Love</option>
+              <option value="3">Personal Growth</option>
+              <option value="4">Righteousness</option>
+              <option value="5">Daily living</option>
+              <option value="6">Culture</option>
+              <option value="7">Theology</option>
+              <option value="8">Accountability</option>
+              <option value="9">Knowing God</option>
+              <option value="10">Maturity</option>
+              <option value="11">Family</option>
+              <option value="12">Church</option>
+              <option value="13">Struggle</option>
+            </select>
+          </div>
+          
+          <input id= 'create-button' type="submit" name="submit" value="Create Devotion" class="btn btn-primary">
+
+        </form>
+      
+        <div class="filter-container">
+          <div id="category-filter">
+            <br><hr>
+            <select class="form-control form-control-sm" id="categories-filter" name="categories">
+              <option value="" selected disabled hidden>Choose Category</option>
+              <option value="1">Prayer</option>
+              <option value="2">Love</option>
+              <option value="3">Personal Growth</option>
+              <option value="4">Righteousness</option>
+              <option value="5">Daily living</option>
+              <option value="6">Culture</option>
+              <option value="7">Theology</option>
+              <option value="8">Accountability</option>
+              <option value="9">Knowing God</option>
+              <option value="10">Maturity</option>
+              <option value="11">Family</option>
+              <option value="12">Church</option>
+              <option value="13">Struggle</option>
+            </select>
+            
+            <input id= 'filter-button' type="submit" name="submit" value="Filter Devotion" class="btn btn-primary">
+            <br><br>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <div class="col-sm-4"  style="text-align:left;">
+        <div id="devotion-container"></div>
+        
+      </div>
+
+
+
+      <div class="col-sm-5" id="column3"  >
+        <div id="view-devotion"></div>
+
+      </div>
+
+    </div>
+  <!-- </div> -->
+
+
+
+
+
+
+
+
+  <!-- <section class="jumbotron text-center">
     <div class="container">
         <form id="create-devotion-form" style="">
           <h3>Add a devotion!</h3>
@@ -132,25 +228,49 @@
 
         </form>
       
-        <!--<a href="#" class="btn btn-primary my-2">Main call to action</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
+
       </p>
     </div>
 
   </section>
+     -->
     
-    
-  <div class="album py-5 bg-light">
+  <!-- <div class="album py-5 bg-light">
     
     <div class="container">
-
+      <div class="filter-container">
+        <div id="category-filter">
+   
+          <select class="form-control form-control-sm" id="categories-filter" name="categories">
+            <option value="" selected disabled hidden>Choose Category</option>
+            <option value="1">Prayer</option>
+            <option value="2">Love</option>
+            <option value="3">Personal Growth</option>
+            <option value="4">Righteousness</option>
+            <option value="5">Daily living</option>
+            <option value="6">Culture</option>
+            <option value="7">Theology</option>
+            <option value="8">Accountability</option>
+            <option value="9">Knowing God</option>
+            <option value="10">Maturity</option>
+            <option value="11">Family</option>
+            <option value="12">Church</option>
+            <option value="13">Struggle</option>
+          </select>
+          
+          <input id= 'filter-button' type="submit" name="submit" value="Filter Devotion" class="btn btn-primary">
+          <br><br>
+        </div>
+      </div>
+    
       <div class="row" id="devotion-container" >
         
         
    
     </div>
   </div>
-</div>
+</div> -->
+
 
   <div id="update-devotion">
 
