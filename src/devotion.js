@@ -123,19 +123,22 @@ class Devotion {
     return `
     
     <div>
-    <img src=${this.image_url} class="card-text" width="450px" height="350px" style="border-radius:0.5rem; text-align:justify"><br><br>
+    <p ><strong>CATEGORY: </strong>${this.category.name}</p>
 
-      <p ><strong>Category: </strong>${this.category.name}</p>
-      <p class="text-muted" ><strong></strong>${this.date}</p>
-      <h4><strong></strong>${this.title}
+    <h2><strong></strong>${this.title}
+  
       <button type="button" style="background: transparent;
-      border: none;" data-id=${this.id}>
-      <i class="fa fa-edit"></i> 
-            </button></h4>
-            
-            <hr>
+        border: none;" data-id=${this.id}>
+        <i class="fa fa-edit" ></i> 
+      </button></h2>
 
-      <p ><strong>Verse(s): </strong>${this.verse}</p>
+      <p class="text-muted" ><strong></strong>${this.date}</p>
+
+            
+      <img src=${this.image_url} class="card-text" width="450px" height="350px" style="border-radius:0.5rem; text-align:justify"><br><br>
+
+      <h4>${this.verse}</h4>
+
       <p class="card-text">${this.content}</p>
 
       
