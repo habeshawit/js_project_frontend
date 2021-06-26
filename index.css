@@ -21,11 +21,6 @@
     max-width: 500px;
   }
 
-  /* .card-deck > .card {
-    width: 29%;
-    flex-wrap: wrap;
-    flex: initial;
-  } */
 }
 
 .jumbotron p:last-child {
@@ -64,40 +59,13 @@ footer p {
   background-color: #f8f9fa!important;
 }
 
-.card {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-  /* height: 100%; */
-}
+
 
 img.card-img-top {
   width: 100%;
   height: 60%;
   object-fit: cover;
 }
-
-/* .h5,
-h5 {
-  font-size: 1rem;
-} */
-
-/* .card-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1rem;
-  line-height: 8px;
-  margin-bottom: -8px;
-} */
 
 #image_wrap {
   /* dimensions */
@@ -224,12 +192,16 @@ h5 {
 
 body{
   /* font-family:Arial, Helvetica, sans-serif; */
+  font-family: "DM Sans", sans-serif;
   
   font-size: .875rem;
   line-height: 1.5;
-
-  font-family:'Times New Roman', Times, serifs;
+ background-color: #f1f3fb;
+  /* font-family:'Times New Roman', Times, serifs; */
 }
+
+
+
 
 #welcome{
   /* background-image: url("https://www.funeralbasics.org/wp-content/uploads/2020/02/shutterstock_520411780-min.jpg"); */
@@ -356,12 +328,6 @@ a{
   box-sizing: border-box;
 }
 
-body {
-  font-family: "DM Sans", sans-serif;
-  line-height: 1.5;
-  background-color: #f1f3fb;
-  padding: 0 2rem;
-}
 
 img {
   max-width: 100%;
@@ -375,17 +341,24 @@ input {
   border-radius: 0;
 }
 
+
+
 .card {
-  /* margin: 2rem auto; */
+  position: relative;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-direction: column;
   flex-direction: column;
-  width: 100%;
-  /* max-width: 425px; */
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px 0 rgba(153, 153, 153, 0.25);
-  padding: 0.75rem;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: none!important;
+  background-clip: border-box;
+  /* border: 1px solid rgba(0, 0, 0, 0.125); */
+  border-radius: 0.25rem;
+  /* height: 100%; */
 }
+
+
 
 .card-image {
   border-radius: 8px;
@@ -462,13 +435,29 @@ input {
 .action-button {
   font: inherit;
   font-size: 1.25rem;
-  padding: 1em;
-  width: 100%;
-  font-weight: 500;
-  background-color: #6658d3;
+  /* padding: 1em; */
+  /* width: 100%; */
+  /* font-weight: 500; */
+  /* background-color: #ccb78f;
+  border: 1px solid #ccb78f;
   border-radius: 6px;
   color: #fff;
-  border: 0;
+  border: 0; */
+
+  background: #ccb78f;
+    border: 1px solid #ccb78f;
+    color: #fff;
+
+    border-radius: 30px;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+}
+.action-button:hover{
+  background-color:white;
+  color: #ccb78f;
 }
 .action-button:focus {
   outline: 0;

@@ -42,9 +42,10 @@ class Devotion {
 
     <div style="width:100%">
 	<!-- code here -->
-	<div class="card">
-	
+	<div class="">
+    
 		<form class="card-form" id="edit-devotion-form" data-id=${this.id}>
+    <h4>Editing "${this.title}"</h4>
 			<div class="input" >
         <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="input-field">
 				<label class="input-label">Title</label>
