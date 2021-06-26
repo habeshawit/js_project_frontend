@@ -53,7 +53,7 @@ class Devotion {
       <form data-id=${this.id} >
       
       <div class="form-group row">
-            <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="form-control">
+            <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="form-control"><hr>
           </div>
 
           <div class="form-group row">
@@ -130,7 +130,7 @@ class Devotion {
         border: none;" data-id=${this.id}>
         <i class="fa fa-edit" ></i> 
       </button></h2>
-
+      <hr>
       <p class="text-muted" ><strong></strong>${this.date}</p>
       <p ><strong>CATEGORY: </strong>${this.category.name}</p>
 
@@ -147,6 +147,18 @@ class Devotion {
     
   `;
   }
+
+  renderDevotionForm(){
+    return `
+    hello
+    
+    
+    
+    
+    `
+  }
+
+
 }
 
 Devotion.all = [];
