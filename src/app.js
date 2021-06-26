@@ -64,7 +64,7 @@ constructor() {
   }
 
   addCategories() {
-    document.querySelector('#categories-container').innerHTML = '';
+    document.querySelector('#categories-container').innerHTML = `<a class="more-link" id="all" >All</a>`;
     Category.all.forEach(
       devotion => (document.querySelector('#categories-container').innerHTML += devotion.renderCategory())
     );
@@ -109,11 +109,22 @@ constructor() {
   handleCategoryClick(e) {
     const id = parseInt(e.target.id);
     const category = Category.findById(id);
-    const result = Devotion.all.filter(devotion => devotion.category.id === id);
+    let result = Devotion.all.filter(devotion => devotion.category.id === id);
     document.querySelector('#devotion-container').innerHTML = ""
-    result.forEach(
-      devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
-    );
+    // debugger
+    if(e.target.id === "all"){
+      result = Devotion.all
+      result.forEach(
+        devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
+      );
+    } else if(result.length!=0){
+      result.forEach(
+        devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
+      );
+    } else {
+      document.querySelector('#devotion-container').innerHTML = `<div class="notice">There are no devotions in this category</div>`
+    }
+    
     console.log("Category Clicked"); 
   }
 

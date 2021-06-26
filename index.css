@@ -324,3 +324,13 @@ body{
   text-shadow: 0px 0px 0px #000000;
 
 }
+
+
+.notice{
+  /* color:red; */
+  text-align: center;
+  font-size: large;
+
+  padding: 270px 0;
+  text-align: center;
+}
