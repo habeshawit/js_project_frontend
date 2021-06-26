@@ -130,7 +130,7 @@ class Devotion {
       <h4><strong></strong>${this.title}
       <button type="button" style="background: transparent;
       border: none;" data-id=${this.id}>
-              &#9998; 
+      <i class="fa fa-edit"></i> 
             </button></h4>
             
             <hr>
