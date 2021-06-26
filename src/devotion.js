@@ -128,7 +128,8 @@ class Devotion {
       <p ><strong>Category: </strong>${this.category.name}</p>
       <p class="text-muted" ><strong></strong>${this.date}</p>
       <h4><strong></strong>${this.title}
-      <button type="button" style="background-color:none" data-id=${this.id}>
+      <button type="button" style="background: transparent;
+      border: none;" data-id=${this.id}>
               &#9998; 
             </button></h4>
             
