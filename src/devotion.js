@@ -124,19 +124,18 @@ class Devotion {
     
     <div class="render-details">
     <div classs="detail-header" style="line-height:0.25!important; margin-bottom:25px!important">
-      <h2><strong></strong>${this.title}
+      <h4>${this.title}
 
       <button type="button" style="background: transparent;
         border: none;" data-id=${this.id}>
         <i class="fa fa-edit" ></i> 
-      </button></h2>
-      <hr>
+      </button></h4>
       <p class="text-muted" ><strong></strong>${this.date}</p>
-      <p ><strong>CATEGORY: </strong>${this.category.name}</p>
+      <p>${this.category.name}</p>
 
     </div>
             
-      <img src=${this.image_url} class="card-text" width="400px" height="300px" style="border-radius:0.5rem; text-align:justify"><br><br>
+      <img src=${this.image_url} class="card-text" width="100%" height="400px" style="border-radius:0.5rem; text-align:justify"><br><br>
 
       <h4>${this.verse}</h4>
 
