@@ -13,25 +13,23 @@ class Devotion {
   renderDevotion() {
     return `
     
-
-    
-    
-   
         <div class="row" id="dev-row">
           <div class="col" id="dev-col">
-            <img src=${this.image_url} style="border-radius: 4rem; width: 68px; height: 68px;" class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>
+            <img src=${this.image_url} style="border-radius: 4rem; width: 68px; height: 68px;" >
           </div>
 
           <div class="col" id="dev-col" style="display: table-cell!important;
             padding: 10px!important;
             vertical-align: middle!important;">
-            <h5 class="card-title">${this.title}</h5>
+            <h5 class="card-title"  class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>${this.title}</h5>
             <p class="text-muted">${this.date}</p>
           </div>
         </div>  
           <div id="details"
             <p>${this.content}</p>
+            
           </div>
+          <a class="more-link" class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > &larr; Read more</a></div>
           <hr>
         </div>
 
@@ -92,6 +90,7 @@ class Devotion {
               <option value="13">Struggle</option>
             </select>
           </div>  
+          
       <div class="modal-footer">  
         <input id='edit-button' class="btn btn-primary" type="submit" name="submit" value="Save Changes" class="submit">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
@@ -124,13 +123,21 @@ class Devotion {
     return `
     
     <div>
+    <img src=${this.image_url} class="card-text" width="450px" height="350px" style="border-radius:0.5rem; text-align:justify"><br><br>
+
       <p ><strong>Category: </strong>${this.category.name}</p>
       <p class="text-muted" ><strong></strong>${this.date}</p>
-      <h1><strong></strong>${this.title}</h1>
-      <img src=${this.image_url} class="card-text" width="450px" height="350px" style="border-radius:1rem; text-align:justify"><br><br>
+      <h4><strong></strong>${this.title}
+      <button type="button" style="background-color:none" data-id=${this.id}>
+              &#9998; 
+            </button></h4>
+            
+            <hr>
 
       <p ><strong>Verse(s): </strong>${this.verse}</p>
       <p class="card-text">${this.content}</p>
+
+      
     </div>
     
   `;
