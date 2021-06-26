@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   app.adapter.fetchDevotions().then(app.createDevotions); 
   app.adapter.fetchCategories().then(app.createCategories); 
-  
+  app.handleHomeClick();
+
 });
 

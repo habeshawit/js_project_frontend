@@ -32,4 +32,16 @@ class Adapter {
       body: JSON.stringify(body),
     }).then((res) => res.json());
   }
+
+  // renderHome(){
+  //   return `
+  //     <div id="welcome"></div>
+  //     <div id="content">
+  //       <h1>Welcome to your daily devotional app</h1>
+  //       <p>"Your word is a lamp for my feet,
+  //         a light on my path." - Psalms 115:105</p>
+  //     </div>
+  //   `
+  // }
+
 }

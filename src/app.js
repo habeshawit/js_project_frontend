@@ -13,6 +13,7 @@ constructor() {
     this.addCategories = this.addCategories.bind(this);
     this.createFormHandler = this.createFormHandler.bind(this);
     this.handleDevotionAdd = this.handleDevotionAdd.bind(this);
+    this.handleHomeClick = this.handleHomeClick.bind(this);
 
     // this.handleCategoryFilter = this.handleCategoryFilter.bind(this);
   }
@@ -20,15 +21,21 @@ constructor() {
   attachEventListeners() {
     document.querySelector('#devotion-container').addEventListener('click', this.handleDevotionClick);
     document.querySelector('#categories-container').addEventListener('click', this.handleCategoryClick);
-    // document.querySelector('#update-devotion').addEventListener('submit', this.handleFormSubmit);
+    document.querySelector('#home').addEventListener('click', this.handleHomeClick);
     document.querySelector('#devo-form').addEventListener('click', this.handleDevotionAdd);
     // document.querySelector("#filter-button").addEventListener('click', this.handleCategoryFilter)  
 }
 
+  handleHomeClick(){
+    console.log("home clicked");
+    const home = new Home();
+    document.querySelector('#view-devotion').innerHTML = home.renderHomeDisplay();
+  }
+
   handleDevotionAdd(){
     console.log("add devo added");
-    const form = new Form();
-    document.querySelector('#view-devotion').innerHTML = form.renderDevotionForm();
+    const home = new Home();
+    document.querySelector('#view-devotion').innerHTML = home.renderDevotionForm();
     document.querySelector("#create-devotion-form").addEventListener('submit', this.createFormHandler);  
 
   }
