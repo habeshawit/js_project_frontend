@@ -136,7 +136,7 @@ class Devotion {
 
     </div>
             
-      <img src=${this.image_url} class="card-text" width="450px" height="350px" style="border-radius:0.5rem; text-align:justify"><br><br>
+      <img src=${this.image_url} class="card-text" width="400px" height="300px" style="border-radius:0.5rem; text-align:justify"><br><br>
 
       <h4>${this.verse}</h4>
 

@@ -199,8 +199,6 @@ h5 {
   margin:5px!important;
   padding:0.25rem;
 
-  
- 
 }
 
 #dev-col p{
@@ -234,7 +232,7 @@ body{
 #welcome{
   /* background-image: url("https://www.funeralbasics.org/wp-content/uploads/2020/02/shutterstock_520411780-min.jpg"); */
 
-  background: url("https://st2.depositphotos.com/1008265/5525/i/950/depositphotos_55251689-stock-photo-summer-path-with-trees.jpg") no-repeat center;
+  /* background: url("https://st2.depositphotos.com/1008265/5525/i/950/depositphotos_55251689-stock-photo-summer-path-with-trees.jpg") no-repeat center; */
   /* background: url("https://www2.pictorem.com/collection/900_fabartdesigns_lane,%20tree,%20tree%20lined%20lane,%20park,%20path,%20grass,%20tall%20trees,%20wood,%20outdoors,.jpg") no-repeat center; */
   
   background: url("https://www.jurick.net/wp-content/uploads/1990/10/golden-path-trees-colorado.jpg") no-repeat center;
@@ -272,7 +270,7 @@ body{
   z-index: 2;
   width: 80%;
   padding: 20px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 #content p{
@@ -302,4 +300,18 @@ body{
 .detail-header{
   line-height: 0!important;
     margin-bottom: 25px!important;
+}
+
+.main{
+  margin-top:5px!important
+}
+
+.devotion-container{
+  margin-top:5px!important;
+}
+
+.add-devo{
+  text-align: left; 
+  margin-top:25px; 
+  margin-bottom:25px;
 }

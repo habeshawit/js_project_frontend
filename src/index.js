@@ -6,5 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   app.attachEventListeners();
 
   app.adapter.fetchDevotions().then(app.createDevotions); 
+  app.adapter.fetchCategories().then(app.createCategories); 
+  
 });
 

@@ -8,17 +8,19 @@ constructor() {
     this.handleDevotionClick = this.handleDevotionClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.createDevotions = this.createDevotions.bind(this);
+    this.createCategories = this.createCategories.bind(this);
     this.addDevotions = this.addDevotions.bind(this);
+    this.addCategories = this.addCategories.bind(this);
     this.createFormHandler = this.createFormHandler.bind(this);
-    this.handleCategoryFilter = this.handleCategoryFilter.bind(this);
+    // this.handleCategoryFilter = this.handleCategoryFilter.bind(this);
   }
 
   attachEventListeners() {
     document.querySelector('#devotion-container').addEventListener('click', this.handleDevotionClick);
+    document.querySelector('#categories-container').addEventListener('click', this.handleCategoryClick);
     document.querySelector('#update-devotion').addEventListener('submit', this.handleFormSubmit);
-    document.querySelector("#create-devotion-form").addEventListener('submit', this.createFormHandler);  
-    document.querySelector("#filter-button").addEventListener('click', this.handleCategoryFilter)  
-    // document.querySelector("#card-title").addEventListener('click', this.handleCategoryFilter)  
+    // document.querySelector("#create-devotion-form").addEventListener('submit', this.createFormHandler);  
+    // document.querySelector("#filter-button").addEventListener('click', this.handleCategoryFilter)  
 }
 
   createDevotions(devotions) {
@@ -28,11 +30,25 @@ constructor() {
     this.addDevotions();
   }
 
+  createCategories(categories) {
+    categories.data.forEach(category => {
+      new Category(category.id, category.attributes);
+    });
+    this.addCategories();
+  }
+
  
   addDevotions() {
     document.querySelector('#devotion-container').innerHTML = '';
     Devotion.all.forEach(
       devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
+    );
+  }
+
+  addCategories() {
+    document.querySelector('#categories-container').innerHTML = '';
+    Category.all.forEach(
+      devotion => (document.querySelector('#categories-container').innerHTML += devotion.renderCategory())
     );
   }
 
@@ -72,15 +88,26 @@ constructor() {
     }    
   }
 
-  handleCategoryFilter(e) {
-    const id = parseInt(document.querySelector('#categories-filter').value)
+  handleCategoryClick(e) {
+    const id = parseInt(e.target.id);
+    const category = Category.findById(id);
     const result = Devotion.all.filter(devotion => devotion.category.id === id);
     document.querySelector('#devotion-container').innerHTML = ""
     result.forEach(
       devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
     );
-
+    console.log("Category Clicked"); 
   }
+
+  // handleCategoryFilter(e) {
+  //   const id = parseInt(document.querySelector('#categories-filter').value)
+  //   const result = Devotion.all.filter(devotion => devotion.category.id === id);
+  //   document.querySelector('#devotion-container').innerHTML = ""
+  //   result.forEach(
+  //     devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
+  //   );
+
+  // }
 
   createFormHandler(e) {
     e.preventDefault();

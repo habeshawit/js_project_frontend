@@ -17,6 +17,7 @@
 
      <!--js project scripts-->
      <script type="text/javascript" src="src/devotion.js"></script>
+     <script type="text/javascript" src="src/category.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/app.js"></script>
     <script type="text/javascript" src="src/adapter.js"></script>
@@ -85,7 +86,13 @@
   <!-- <div class="container"> -->
     <div class="row" style="width:98%; text-align: center;" >
       <div class="col-sm-2" id="column1">
-       <form id="create-devotion-form" style="">
+
+        <div class="add-devo">
+          <h5>Welcome to Daily Devotional!</h5>
+          <a class="more-link" style="margin-left:10px">Add Devotion</a>
+        </div>
+
+       <!-- <form id="create-devotion-form" style="">
           
           <h3>Add a devotion!</h3>
           <div class="form-group row">
@@ -129,32 +136,18 @@
           
           <input id= 'create-button' type="submit" name="submit" value="Create Devotion" class="btn btn-primary">
 
-        </form>
-      
-        <div class="filter-container">
-          <div id="category-filter">
-            <br><hr>
-            <select class="form-control form-control-sm" id="categories-filter" name="categories">
-              <option value="" selected disabled hidden>Choose Category</option>
-              <option value="1">Prayer</option>
-              <option value="2">Love</option>
-              <option value="3">Personal Growth</option>
-              <option value="4">Righteousness</option>
-              <option value="5">Daily living</option>
-              <option value="6">Culture</option>
-              <option value="7">Theology</option>
-              <option value="8">Accountability</option>
-              <option value="9">Knowing God</option>
-              <option value="10">Maturity</option>
-              <option value="11">Family</option>
-              <option value="12">Church</option>
-              <option value="13">Struggle</option>
-            </select>
-            
-            <input id= 'filter-button' type="submit" name="submit" value="Filter Devotion" class="btn btn-primary">
-            <br><br>
+        </form> -->
+
+        <div class="categories" style="text-align: left;">
+          <h5>Categories</h5>
+          <div id="categories-container" style="text-align: left; margin-left:10px">
+        
           </div>
         </div>
+
+        
+      
+        
       </div>
 
       <div class="col-sm-6" id="column3"  >
