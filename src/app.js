@@ -123,6 +123,13 @@ constructor() {
          
         }) 
 
+    // Devotion.all.filter( devotion => {return devotion.id != id})
+
+    Devotion.all = Devotion.all.filter(function(item) {
+      return item.id != id;
+  });
+    debugger
+
     this.adapter.fetchCategories().then(this.createCategories); 
 
     this.handleHomeClick();
