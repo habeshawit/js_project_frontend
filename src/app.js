@@ -64,7 +64,7 @@ constructor() {
   }
 
   addCategories() {
-    document.querySelector('#categories-container').innerHTML = `<a class="more-link" id="all" >All</a>`;
+    document.querySelector('#categories-container').innerHTML = `<a class="more-link" id="all" >All Entries</a><br><br>`;
     Category.all.forEach(
       devotion => (document.querySelector('#categories-container').innerHTML += devotion.renderCategory())
     );
@@ -119,7 +119,6 @@ constructor() {
     const category = Category.findById(id);
     let result = Devotion.all.filter(devotion => devotion.category.id === id);
     document.querySelector('#devotion-container').innerHTML = ""
-    // debugger
     if(e.target.id === "all"){
       result = Devotion.all
       result.forEach(

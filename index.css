@@ -315,6 +315,7 @@ a{
 }
 
 
+
 .notice{
   /* color:red; */
   text-align: center;
@@ -494,8 +495,15 @@ textarea{
 
 .categories{
   text-align: left; 
-  line-height:2; 
+  line-height:1; 
   color:#ccb78f;
+}
+.categories p{
+  color: grey!important
+}
+
+#all{
+  margin-bottom: 20px!important;
 }
 
 .categories h5{
@@ -512,4 +520,11 @@ textarea{
 
 hr{
   margin: 0.5px!important;
+}
+
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
 }
