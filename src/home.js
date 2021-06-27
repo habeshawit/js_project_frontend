@@ -55,12 +55,19 @@ class Home {
 
     renderHomeDisplay(){
         return `
-        <div id="welcome"></div>
-        <div id="content">
-          <h1>Welcome to your daily devotional app</h1>
-          <p>"Your word is a lamp for my feet,
-            a light on my path." - Psalms 115:105</p>
+        <div id="welcome">
+          <img src="https://www.jurick.net/wp-content/uploads/1990/10/golden-path-trees-colorado.jpg">
+        
+          <div id="content">
+            <h1>Welcome to your daily devotional app</h1>
+            <p>"Your word is a lamp for my feet, a light on my path." - Psalms 115:105</p>
+          </div>
+        
         </div>
+        
+        
+          
+        
         
         `
     }

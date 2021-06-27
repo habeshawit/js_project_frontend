@@ -10,26 +10,43 @@ class Devotion {
     Devotion.all.push(this);
   }
 
+    //Can call it on the devotion class itself
+    static findById(id) {
+      return Devotion.all.find((devotion) => devotion.id == id);
+    }
+  
+    //prettier-ignore
+    update({ title, date, verse, content, image_url, category }) {
+      this.title = title;
+      this.date = date;
+      this.verse = verse;
+      this.content = content;
+      this.image_url = image_url;
+      this.category = category;
+    }
+
   renderDevotion() {
     return `
     
         <div class="row" id="dev-row">
-          <div class="col" id="dev-col">
-            <img src=${this.image_url} style="border-radius: 4rem; width: 68px; height: 68px;" >
-          </div>
 
           <div class="col" id="dev-col" style="display: table-cell!important;
-            padding: 10px!important;
-            vertical-align: middle!important;">
-            <h5 class="card-title"  class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>${this.title}</h5>
-            <p class="text-muted">${this.date}</p>
-          </div>
-        </div>  
-          <div id="details"
-            <p>${this.content}</p>
             
-          </div>
-          <a class="more-link" class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > &larr; Read more</a></div>
+            vertical-align: middle!important;
+            width: 68%!important; text-align:justify">
+            <h5 class="card-title"  class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>${this.title}</h5>
+            <div id="details"
+              <p>${this.content}</p>
+            </div>
+              <p class="text-muted" style="color:grey!important; font-size:12px!important">${this.date}</p><br>
+              <p><a class="more-link" class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > &larr; Read more</a></p>
+              </div>
+
+            <div class="col" id="dev-col" style="width:20%">
+              <img src=${this.image_url} " >
+            </div>
+          </div>  
+  
           <hr>
         </div>
 
@@ -45,7 +62,6 @@ class Devotion {
 	<div class="">
     
 		<form class="card-form" id="edit-devotion-form" data-id=${this.id}>
-    <h4>Editing "${this.title}"</h4>
 			<div class="input" >
         <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="input-field">
 				<label class="input-label">Title</label>
@@ -62,7 +78,7 @@ class Devotion {
       </div>
 
       <div class="input" >
-        <textarea id='input-content' name="content" value=${this.content} class="input-field" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>${this.content}</textarea>
+        <textarea id='input-content' name="content" value=${this.content} class="input-field" onMouseOver='this.style.height = "";this.style.height = this.scrollHeight + "px"'>${this.content}</textarea>
         <label class="input-label" style="transform: translateY(-1.5rem); color: #6658d3;">Content</label>
       </div>
 
@@ -100,26 +116,8 @@ class Devotion {
 	</div>
 </div>
 
-    
-
-    
   `;
   
-  }
-
-  //Can call it on the devotion class itself
-  static findById(id) {
-    return Devotion.all.find((devotion) => devotion.id == id);
-  }
-
-  //prettier-ignore
-  update({ title, date, verse, content, image_url, category }) {
-    this.title = title;
-    this.date = date;
-    this.verse = verse;
-    this.content = content;
-    this.image_url = image_url;
-    this.category = category;
   }
 
   renderDevotionDetails() {
@@ -127,20 +125,25 @@ class Devotion {
     
     <div class="render-details">
     <div classs="detail-header" style="line-height:0.25!important; margin-bottom:25px!important">
-      <h4>${this.title}
+
+      <p class="text-muted" >${this.date}</p>
+    </div>
+    
+    <img src=${this.image_url} class="card-text" width="100%" height="400px" style="border-radius:0.5rem; text-align:justify"><br><br>
+    
+    <div classs="detail-header" style="line-height:0.45!important; margin-bottom:25px!important">
+      <h3 style="font-weight:900">${this.title} 
 
       <button id="edit-btn" type="button" style="background: transparent;
         border: none;" data-id=${this.id}>
         <i class="fa fa-edit" id="edit-btn" data-id=${this.id}></i> 
-      </button></h4>
-      <p class="text-muted" ><strong></strong>${this.date}</p>
-      <p class="text-muted">${this.category.name}</p>
-
+      </button></h3>
+      <p>Category: ${this.category.name} </p>
+      <p>${this.verse}</p>
     </div>
             
-      <img src=${this.image_url} class="card-text" width="100%" height="400px" style="border-radius:0.5rem; text-align:justify"><br><br>
 
-      <h4>${this.verse}</h4>
+      
 
       <p class="card-text">${this.content}</p>
 
