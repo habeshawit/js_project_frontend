@@ -201,9 +201,9 @@ constructor() {
     .then(devotion => {
       const devotionData = devotion.data
       const newDevotion = new Devotion(devotionData.id, devotionData.attributes);
-      document.querySelector(
-        "#devotion-container"
-      ).innerHTML += newDevotion.renderDevotion();
+
+
+      $('#devotion-container').prepend(newDevotion.renderDevotion())
 
     //  $('#create-devotion-form')[0].reset();
      document.querySelector("#create-devotion-form").reset()

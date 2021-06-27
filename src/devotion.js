@@ -31,25 +31,25 @@ class Devotion {
     return `
         <div class="row" id="devo-${this.id}">
         
-          <div class="col" id="dev-col" style="display: table-cell!important;
-            
-            vertical-align: middle!important;
-            width: 68%!important; text-align:justify">
+          <div class="col" id="dev-col" style="display: table-cell!important;vertical-align: middle!important; width: 68%!important; text-align:justify">
             <h5 class="card-title"  class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>${this.title}</h5>
+            
             <div id="details"
               <p>${this.content}</p>
             </div>
-              <p class="text-muted" style="color:grey!important; font-size:12px!important">${this.date}</p><br>
-              <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > &larr; Read more</a></p>
-              </div>
 
-            <div class="col" id="dev-col" style="width:20%">
-              <img src=${this.image_url} " >
+            <div>
+              <p class="text-muted" style="color:grey!important; font-size:12px!important">${new Date(this.created_at).toDateString()} </p><br>
+              <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > &larr; Read more</a></p>
             </div>
-          </div>  
-  
+          </div>
+
+          <div class="col" id="dev-col" style="width:20%">
+            <img src=${this.image_url} " >
+          </div>
+          <hr style="width: 100vw;">  
         </div>
-        <hr>
+        
 
     `;
   }
@@ -127,7 +127,7 @@ class Devotion {
     <div class="render-details">
     <div classs="detail-header" style="line-height:0.25!important; margin-bottom:25px!important">
 
-      <p class="text-muted" >${this.date}</p>
+      <p class="text-muted" >${new Date(this.created_at).toDateString()}</p>
     </div>
     
     <img src=${this.image_url} class="card-text" width="100%" height="400px" style="border-radius:0.5rem; text-align:justify"><br><br>
