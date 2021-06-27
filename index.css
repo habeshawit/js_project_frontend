@@ -340,7 +340,7 @@ a{
 img {
   max-width: 100%;
   display: block;
-  height: fit-content;
+  /* height: fit-content; */
 }
 
 input {

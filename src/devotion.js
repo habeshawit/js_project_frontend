@@ -34,12 +34,12 @@ class Devotion {
             
             vertical-align: middle!important;
             width: 68%!important; text-align:justify">
-            <h5 class="card-title"  class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>${this.title}</h5>
+            <h5 class="card-title"  class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>${this.title}</h5>
             <div id="details"
               <p>${this.content}</p>
             </div>
               <p class="text-muted" style="color:grey!important; font-size:12px!important">${this.date}</p><br>
-              <p><a class="more-link" class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > &larr; Read more</a></p>
+              <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > &larr; Read more</a></p>
               </div>
 
             <div class="col" id="dev-col" style="width:20%">
@@ -131,13 +131,16 @@ class Devotion {
     
     <img src=${this.image_url} class="card-text" width="100%" height="400px" style="border-radius:0.5rem; text-align:justify"><br><br>
     
-    <div classs="detail-header" style="line-height:0.45!important; margin-bottom:25px!important">
+    <div class="detail-header" style="line-height:0.45!important; margin-bottom:25px!important">
       <h3 style="font-weight:900">${this.title} 
 
-      <button id="edit-btn" type="button" style="background: transparent;
+      <button type="button" style="background: transparent;
         border: none;" data-id=${this.id}>
-        <i class="fa fa-edit" id="edit-btn" data-id=${this.id}></i> 
+        <i class="bi bi-pencil-fill" id="edit-btn" data-id=${this.id}></i> 
+        <i class="bi bi-trash" id="delete-btn" data-id=${this.id}></i> 
+    
       </button></h3>
+
       <p>Category: ${this.category.name} </p>
       <p>${this.verse}</p>
     </div>
@@ -151,16 +154,6 @@ class Devotion {
     </div>
     
   `;
-  }
-
-  renderDevotionForm(){
-    return `
-    hello
-    
-    
-    
-    
-    `
   }
 
 

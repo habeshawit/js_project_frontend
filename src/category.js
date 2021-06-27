@@ -6,6 +6,13 @@ class Category {
       this.devotions = attributes.devotions
       Category.all.push(this);
     }
+
+    update({ id, name, devotions}) {
+        debugger
+        this.id = id;
+        this.name = name;
+        this.devotions = devotions;
+      }
   
      pickColor() {
               
@@ -25,6 +32,7 @@ class Category {
 
 
     renderCategory() {
+        // debugger
       return `
         
           <div >
