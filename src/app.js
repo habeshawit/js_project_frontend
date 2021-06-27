@@ -58,6 +58,10 @@ constructor() {
   addDevotions() {
     document.querySelector('#devotion-container').innerHTML = "";
 
+    // Devotion.all.sort(function(a,b){
+
+    //   return new Date(b.date) - new Date(a.date);
+    // });
     Devotion.all.forEach(
       devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
     );
@@ -118,17 +122,17 @@ constructor() {
         })
         .then(response => response.json())
         .then(devotion => {
-      console.log(devotion.message);
-    }) 
+          alert(devotion.message);
+          const element = document.getElementById(`devo-${id}`);
+          element.parentNode.removeChild(element)
+         
+        }) 
 
     this.adapter.fetchCategories().then(this.createCategories); 
-    this.adapter.fetchDevotions().then(this.createDevotions); 
 
     this.handleHomeClick();
 
   }
-
-  
 
   handleDevotionClick(e) {
     const id = parseInt(e.target.dataset.id);
@@ -148,7 +152,6 @@ constructor() {
     }  
     else if(e.target.id === "delete-btn"){
       console.log("delete button clicked");
-      alert("Entry successfully deleted")
       this.handleDelete(e);
     }  
   }

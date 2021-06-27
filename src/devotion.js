@@ -7,6 +7,8 @@ class Devotion {
     this.content = devotionAttributes.content;
     this.image_url = devotionAttributes.image_url;
     this.category = devotionAttributes.category;
+    this.created_at = devotionAttributes.created_at
+    
     Devotion.all.push(this);
   }
 
@@ -27,9 +29,8 @@ class Devotion {
 
   renderDevotion() {
     return `
-    
-        <div class="row" id="dev-row">
-
+        <div class="row" id="devo-${this.id}">
+        
           <div class="col" id="dev-col" style="display: table-cell!important;
             
             vertical-align: middle!important;
@@ -47,8 +48,8 @@ class Devotion {
             </div>
           </div>  
   
-          <hr>
         </div>
+        <hr>
 
     `;
   }
