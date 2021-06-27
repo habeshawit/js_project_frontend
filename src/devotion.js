@@ -2,7 +2,6 @@ class Devotion {
   constructor(id, devotionAttributes) {
     this.id = id;
     this.title = devotionAttributes.title;
-    this.date = devotionAttributes.date;
     this.verse = devotionAttributes.verse;
     this.content = devotionAttributes.content;
     this.image_url = devotionAttributes.image_url;
@@ -18,9 +17,8 @@ class Devotion {
     }
   
     //prettier-ignore
-    update({ title, date, verse, content, image_url, category }) {
+    update({ title, verse, content, image_url, category }) {
       this.title = title;
-      this.date = date;
       this.verse = verse;
       this.content = content;
       this.image_url = image_url;
@@ -67,11 +65,6 @@ class Devotion {
         <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="input-field">
 				<label class="input-label">Title</label>
 			</div>
-
-      <div class="input">
-        <input id='input-date' type="text" name="date" value="${this.date}" placeholder="Date" class="input-field">
-				<label class="input-label">Date</label>
-      </div>
 
       <div class="input">
         <input id='input-verse' type="text" name="verse" value="${this.verse}" placeholder="Verse" class="input-field">

@@ -58,10 +58,6 @@ constructor() {
   addDevotions() {
     document.querySelector('#devotion-container').innerHTML = "";
 
-    // Devotion.all.sort(function(a,b){
-
-    //   return new Date(b.date) - new Date(a.date);
-    // });
     Devotion.all.forEach(
       devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
     );
@@ -87,13 +83,12 @@ constructor() {
     const id = parseInt(e.target.dataset.id);
     const devotion = Devotion.findById(id);
     const title = e.target.querySelector("#input-title").value;
-    const date = e.target.querySelector("#input-date").value;
     const verse = e.target.querySelector("#input-verse").value;
     const content = e.target.querySelector("#input-content").value;
     const image_url = e.target.querySelector("#input-url").value;
     const category_id = parseInt(e.target.querySelector("#categories").value);
     
-    const jsonBody = {devotion,title,date,verse,content,image_url,category_id};
+    const jsonBody = {devotion,title,verse,content,image_url,category_id};
 
     this.adapter.updateDevotion(devotion.id, jsonBody).then(updatedDevotion => {
      console.log(this);
@@ -181,16 +176,15 @@ constructor() {
     e.preventDefault();
     
     const title = document.querySelector("#input-title").value;
-    const date = document.querySelector("#input-date").value;
     const content = document.querySelector("#input-content").value;
     const verse = document.querySelector("#input-verse").value;
     const image = document.querySelector("#input-url").value;
     const categoryId = parseInt(document.querySelector("#categories").value);
-    this.postFetch(title, date, content,verse, image, categoryId);
+    this.postFetch(title, content,verse, image, categoryId);
   }
 
-  postFetch(title, date, content, verse, image_url, category_id){
-    let bodyData = {title, date, content, verse, image_url, category_id}
+  postFetch(title, content, verse, image_url, category_id){
+    let bodyData = {title, content, verse, image_url, category_id}
     
     fetch(endPoint, {
       method: "POST",

@@ -11,10 +11,6 @@ class Home {
       </div>
 
       <div class="form-group row">
-        <input id='input-date' type="text" name="date" value="" placeholder="Date" class="form-control">
-      </div>
-
-      <div class="form-group row">
         <input id='input-verse' type="text" name="verse" value="" placeholder="Verse" class="form-control">
       </div>
 
