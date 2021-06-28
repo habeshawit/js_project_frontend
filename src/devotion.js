@@ -42,7 +42,7 @@ class Devotion {
 
             <div>
               <p class="text-muted" style="color:grey!important; font-size:12px!important">${new Date(this.created_at).toDateString()} </p><br>
-              <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > Read more &rarr;</a></p>
+              <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > &larr; Read more </a></p>
             </div>
           </div>
 
@@ -126,28 +126,20 @@ class Devotion {
     <div class="render-details">
     <div classs="detail-header" style="line-height:0.25!important; margin-bottom:25px!important">
 
-      <p class="text-muted" >${new Date(this.created_at).toDateString()}</p>
+      <p class="text-muted" >${new Date(this.created_at).toDateString()} |<button  type="button" style="background: transparent;border: none;" data-id=${this.id}>
+      <i class="bi bi-pencil-fill" style="margin:10px" id="edit-btn" data-id=${this.id}></i> | <i style="margin:10px" class="bi bi-trash-fill" id="delete-btn" data-id=${this.id}></i> </button></p>
     </div>
     
     <img src=${this.image_url} class="card-text" width="100%" height="400px" style="border-radius:0.5rem; text-align:justify"><br><br>
     
     <div class="detail-header" style="line-height:0.45!important; margin-bottom:25px!important">
-      <h3 style="font-weight:900">${this.title} 
+      <h3 style="font-weight:900">${this.title} </h3>
 
-      <button type="button" style="background: transparent;
-        border: none;" data-id=${this.id}>
-        <i class="bi bi-pencil-fill" id="edit-btn" data-id=${this.id}></i> 
-        <i class="bi bi-trash-fill" id="delete-btn" data-id=${this.id}></i> 
-    
-      </button></h3>
+      <p style="font-weight:bold"><i class="bi bi-file-ruled"></i> ${this.category.name} </p><br>
 
-      <p>Category: ${this.category.name} </p>
       <p>${this.verse}</p>
     </div>
             
-
-      
-
       <p class="card-text">${this.content}</p>
 
       
