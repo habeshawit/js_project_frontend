@@ -71,7 +71,7 @@ constructor() {
   }
 
   addCategories() {
-    document.querySelector('#categories-container').innerHTML = `<a class="more-link" id="all" >All Entries</a><br><br>`;
+    document.querySelector('#categories-container').innerHTML = ` <a class="more-link" id="all" >All Entries</a><br><br>`;
     Category.all.forEach(
       category => (document.querySelector('#categories-container').innerHTML += category.renderCategory())
     );
@@ -97,7 +97,9 @@ constructor() {
       
       this.addDevotions();
 
-      document.querySelector('#view-devotion').innerHTML = devotion.renderDevotionDetails();
+      // document.querySelector('#view-devotion').innerHTML = devotion.renderUpdateForm();
+      // document.querySelector('#saved-now').innerHTML = `<i class="bi bi-check-lg" style="color:green"></i> Saved a few seconds ago`;
+      this.SaveFunction();
       document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
       document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
 
@@ -105,6 +107,15 @@ constructor() {
 
     this.adapter.fetchCategories().then(this.createCategories); 
 
+  }
+
+  SaveFunction() {
+    let form = document.getElementById("saved-now")
+    let originalContent = form.innerHTML
+    form.innerHTML = `<i class="bi bi-check-lg" style="color:green"></i> Saved a few seconds ago`
+    setTimeout(function() {
+      form.innerHTML = originalContent
+    }, 5000)
   }
 
   handleDelete(e) {
@@ -128,7 +139,7 @@ constructor() {
     Devotion.all = Devotion.all.filter(function(item) {
       return item.id != id;
   });
-    debugger
+    // debugger
 
     this.adapter.fetchCategories().then(this.createCategories); 
 
@@ -208,7 +219,8 @@ constructor() {
 
     //  $('#create-devotion-form')[0].reset();
      document.querySelector("#create-devotion-form").reset()
-     document.querySelector('#view-devotion').innerHTML = newDevotion.renderDevotionDetails();
+     document.querySelector('#view-devotion').innerHTML = newDevotion.renderUpdateForm();
+     this.SaveFunction();
 
      document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
     document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
