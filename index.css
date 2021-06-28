@@ -142,6 +142,7 @@ img.card-img-top {
 .row {
   display: flex;
   margin:0 auto;
+
 }
 
 .row > div {
@@ -164,6 +165,8 @@ img.card-img-top {
 
   display: block!important;
   /* overflow: auto!important; */
+
+  
 
 }
 
@@ -196,15 +199,24 @@ img.card-img-top {
 
 body{
   /* font-family:Arial, Helvetica, sans-serif; */
-  font-family: "DM Sans", sans-serif;
+  /* font-family: "DM Sans", sans-serif;
   
   font-size: .875rem;
-  line-height: 1.5;
+  line-height: 1.5; */
  /* background-color: #f1f3fb; */
  background-color: rgb(248, 245, 245);
  background-color: white;
  text-align: left!important;
   /* font-family:'Times New Roman', Times, serifs; */
+
+  font-family: "Lora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .card-title{
@@ -594,4 +606,100 @@ transition: height 2s ease;
 
 * {
   -webkit-font-smoothing:antialiased !important;
+}
+
+
+/* Home page */
+
+.welcome-home{
+  /* border: 1px solid; */
+  /* border-radius: 1.5rem !important; */
+  padding:55px;
+  text-align:center;
+  margin:15px;
+  background-color: lightgray;
+  border:none;
+  box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 10%);
+  background-image: url("https://image.shutterstock.com/image-photo/small-candle-light-yellow-spots-260nw-1147242374.jpg");
+  /* background-image: url("https://www.maxpixel.net/static/photo/1x/Forests-Light-Path-Trees-Forest-Nature-Landscape-4163091.jpg"); */
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* color:white; */
+  height:50vh;
+
+}
+
+.welcome-home p{
+  text-transform: uppercase
+}
+
+.welcome-link{
+  padding:12px;
+  border-radius: 1rem!important;
+  background-color: lightblue;
+  border:none;
+  box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 10%);
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+
+.welcome-link:hover{
+  background-color: rgb(0, 162, 255);
+  background-color: white;
+
+}
+
+.statistics{
+  padding:15px;
+  /* border-radius: 1.5rem !important; */
+  /* padding:55px; */
+  text-align:center;
+  margin:15px;
+  /* background-color: lightgray; */
+  border:none;
+  box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 10%);
+}
+
+.statistics .row>div{
+  
+  border:none!important;
+  
+  
+}
+
+.statistics span{
+  font-size: 45px;
+}
+
+
+.border-right {
+  border-right: 1px solid black!important;
+}
+
+
+.date{
+  border: 2px;
+    border: black;
+    border: 2px solid black;
+    /* outline: 1px solid #ddd; */
+    border-radius: 2rem;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 10px;
+    padding-left: 10px;
+    /* height: 90%; */
+    width: fit-content;
+    align-items: center;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 5px;
+}
+
+.lead{
+  height: 115px;
+  overflow: hidden;
+}
 }

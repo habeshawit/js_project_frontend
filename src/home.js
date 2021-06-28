@@ -9,9 +9,10 @@ class Home {
       <div style="width:100%">
 	
 	  <div class="">
+    
       <form class="card-form" id="create-devotion-form" >
-
         <hr>
+        
           <p><i class="bi bi-calendar"></i> Today |  
             <span id="show-word-count">0</span> words | <button class="more-link"><input id= 'create-button' type="submit" name="submit" value="Save now" class="submit"></button>
             <span id="saved-now" class="alignright"></span>
@@ -69,28 +70,29 @@ class Home {
 
     renderHomeDisplay(){
         return `
+
+        
+        
+
+
         <div class="welcome-home">
           <p>${new Date().toDateString()}</p>
           <h1>Good Morning!</h1>
 
-          <p>"Your word is a lamp for my feet, a light on my path." - Psalms 115:105</p>
+          <p style="font-size:20px">"Your word is a lamp for my feet, a light on my path." - Psalms 115:105</p>
+
+          <button class="welcome-link" id="start-journal" >Start Today's Journal</button>
+
         </div>
 
-        <div>
-          Statistics
-
-          entries
-
-          this week
-          
-
-          Start date
+        <div class="statistics">
+          <div class="row">
+            <div class="col" style="border-right: 1px solid black!important; border-radius: 0px!important"><span>27</span><br> total entries</div>
+            <div class="col" style="border-right: 1px solid black!important; border-radius: 0px!important"><span>8 </span><br>this week</div>
+            <div class="col" ><span>Start day</span><br> June 27, 2020</div>
+          </div>
         </div>
 
-        
-        
-          
-        
         
         `
     }

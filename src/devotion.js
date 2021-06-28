@@ -32,7 +32,7 @@ class Devotion {
     return `
     
         <div class="row" id="devo-${this.id}">
-        
+
           <div class="col" id="dev-col" style="display: table-cell!important;vertical-align: middle!important; width: 68%!important; text-align:justify">
             <h5 class="card-title"  class="card-img-top" alt="..."  data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>${this.title}</h5>
             
@@ -61,7 +61,7 @@ class Devotion {
     return `
 
     <div style="width:100%">
-	
+    
 	  <div class="">
       <form class="card-form" id="edit-devotion-form" data-id=${this.id}>
         <hr>
@@ -70,29 +70,11 @@ class Devotion {
           <span id="saved-now" class="alignright"></span>
         </p>
         <hr>
-      
-      <div class="input" >
-          <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="input-field">
-          <label class="input-label">Title</label>
-        </div>
 
-        <div class="input">
-          <input id='input-verse' type="text" name="verse" value="${this.verse}" placeholder="Verse" class="input-field">
-          <label class="input-label">Verse</label>
-        </div>
+        <div class="">
+            <label><i class="bi bi-file-ruled"></i> </label>
 
-        <div class="input" >
-          <textarea id='input-content' name="content" value=${this.content} class="input-field" onkeypress="countWords(this)" onkeydown='this.style.height = "";this.style.height = this.scrollHeight + "px"'>${this.content}</textarea>
-          <label class="input-label" style="transform: translateY(-1.5rem); color: #6658d3;">Content</label>
-        </div>
-
-      <div class="input">
-          <input id='input-url' type="text" name="image" value="${this.image_url}" placeholder="Image URL" class="input-field">
-          <label class="input-label">Image URL</label>
-        </div>
-        
-        <div class="input">
-          <select class="input-field" id="categories" name="categories" value=${this.category}>
+            <select class="input-field" id="categories" name="categories" value=${this.category}>
             <option value="${this.category.id}">${this.category.name}</option>
             <option value="1">Prayer</option>
             <option value="2">Love</option>
@@ -108,8 +90,27 @@ class Devotion {
             <option value="12">Church</option>
             <option value="13">Struggle</option>
           </select>
-          <label class="input-label">Category</label>
+
         </div>  
+
+
+    
+      
+  <div class="input" >
+          <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="input-field">
+        </div>
+    
+        <div class="input">
+          <input id='input-verse' type="text" name="verse" value="${this.verse}" placeholder="Verse" class="input-field">
+        </div>
+
+        <div class="input" >
+          <textarea id='input-content' name="content" value=${this.content} class="input-field" onkeypress="countWords(this)" onkeydown='this.style.height = "";this.style.height = this.scrollHeight + "px"'>${this.content}</textarea>
+        </div>
+
+        <div class="input">
+          <input id='input-url' type="text" name="image" value="${this.image_url}" placeholder="Image URL" class="input-field">
+        </div>
     
       </form>
       
@@ -124,28 +125,56 @@ class Devotion {
     return `
     
     <div class="render-details">
-    <div classs="detail-header" style="line-height:0.25!important; margin-bottom:25px!important">
+      <span id="saved-now" class="alignright"></span>
 
-      <p class="text-muted" >${new Date(this.created_at).toDateString()} |<button  type="button" style="background: transparent;border: none;" data-id=${this.id}>
-      <i class="bi bi-pencil-fill" style="margin:10px" id="edit-btn" data-id=${this.id}></i> | <i style="margin:10px" class="bi bi-trash-fill" id="delete-btn" data-id=${this.id}></i> </button></p>
-    </div>
-    
-    <img src=${this.image_url} class="card-text" width="100%" height="400px" style="border-radius:0.5rem; text-align:justify"><br><br>
-    
-    <div class="detail-header" style="line-height:0.45!important; margin-bottom:25px!important">
-      <h3 style="font-weight:900">${this.title} </h3>
+      <div classs="detail-header" style="line-height:0.25!important; margin-bottom:25px!important">
 
-      <p style="font-weight:bold"><i class="bi bi-file-ruled"></i> ${this.category.name} </p><br>
-
-      <p>${this.verse}</p>
-    </div>
-            
-      <p class="card-text">${this.content}</p>
-
+        <p class="text-muted" >${new Date(this.created_at).toDateString()} |<button  type="button" style="background: transparent;border: none;" data-id=${this.id}>
+        <i class="bi bi-pencil-fill" style="margin:10px" id="edit-btn" data-id=${this.id}></i> | <i style="margin:10px" class="bi bi-trash-fill" id="delete-btn" data-id=${this.id}></i> </button></p>
+      </div>
       
+      <img src=${this.image_url} class="card-text" width="100%" height="400px" style="border-radius:0.5rem; text-align:justify"><br><br>
+      
+      <div class="detail-header" style="line-height:0.45!important; margin-bottom:25px!important">
+        <h3 style="font-weight:900">${this.title} </h3>
+
+        <p style="font-weight:bold"><i class="bi bi-file-ruled"></i> ${this.category.name} </p><br>
+
+        <p>${this.verse}</p>
+      </div>
+              
+        <p class="card-text">${this.content}</p>
+
+        
     </div>
     
   `;
+  }
+
+
+  renderFeaturedDevo(){
+
+    return `
+      
+      <div class="row gx-4 gx-lg-5 align-items-center" id=${this.id} >
+        
+      <div class="col-md-6" id="featured-devo" style="border:none!important;"><img class="card-img-top mb-5 mb-md-0" src=${this.image_url} alt="..."></div>
+
+        <div class="col-md-6" style="border:none!important">
+            <h1 class="display-5 fw-bolder">${this.title}</h1>
+            
+            <p class="lead">${this.content}</p>
+            <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > Read more </a></p>
+            
+            
+        </div>
+        
+      </div>
+    
+    
+    
+    `
+    
   }
 
 
