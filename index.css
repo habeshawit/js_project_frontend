@@ -333,16 +333,21 @@ body{
 button{
   /* all:unset!important; */
 
-  background: lightblue;
-  border-radius: 2rem;
+  /* background: lightblue; */
+  /* border-radius: 2rem; */
   margin: 5px;
+  margin-left:0!important;
+  border:none;
+  background-color: white;
+  padding:5px;
 }
 button:hover{
-  background-color:white;
+  background-color:lightgray;
   color: black;
 }
 button:focus {
   outline: 0;
+  background-color:lightgrey;
 }
 
 
@@ -518,18 +523,18 @@ textarea{
 .categories p{
   color: grey!important
 }
-
+/* 
 .categories h5{
   margin-bottom:25px!important;
-}
-
+} */
+/* 
 #all{
-  color:red!important;
-}
+  color:black!important;
+} */
 
-#all{
+/* #all{
   margin-bottom: 20px!important;
-}
+} */
 
 .categories h5{
   font-weight: bold;
@@ -702,3 +707,5 @@ transition: height 2s ease;
   height: 115px;
   overflow: hidden;
 }
+
+

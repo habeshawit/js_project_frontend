@@ -6,6 +6,7 @@ constructor() {
 
     //bind sets what this is
     this.handleDevotionClick = this.handleDevotionClick.bind(this);
+    this.handleSidebarClick = this.handleSidebarClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.createDevotions = this.createDevotions.bind(this);
     this.createCategories = this.createCategories.bind(this);
@@ -17,11 +18,13 @@ constructor() {
   }
 
   attachEventListeners() {
-    document.querySelector('#devotion-container').addEventListener('click', this.handleDevotionClick);
+    document.querySelector('#devotion-container').addEventListener('click', this.handleSidebarClick);
     document.querySelector('#view-devotion').addEventListener('click', this.handleDevotionClick);
     document.querySelector('#categories-container').addEventListener('click', this.handleCategoryClick);
     document.querySelector('#home').addEventListener('click', this.handleHomeClick);
-    document.querySelector('#devo-form').addEventListener('click', this.handleDevotionAdd);    
+    document.querySelector('#devo-form').addEventListener('click', this.handleDevotionAdd);   
+    // document.querySelector('.welcome-link').addEventListener('click', this.handleDevotionClick);
+
 }
 
   addFeaturedDevo(){
@@ -29,14 +32,16 @@ constructor() {
       const featuredDevotion = Devotion.all[0];
       document.querySelector('#view-devotion').innerHTML += featuredDevotion.renderFeaturedDevo();
     }
+    
   }
 
   handleHomeClick(){
     console.log("home clicked");
     const home = new Home();
     document.querySelector('#view-devotion').innerHTML = home.renderHomeDisplay();
-    // document.querySelector('#start-journal').addEventListener('click', this.handleDevotionAdd);
+   
     this.addFeaturedDevo();
+
   }
 
   handleDevotionAdd(){
@@ -55,6 +60,7 @@ constructor() {
     this.addDevotions();
     const featuredDevotion = Devotion.all[0];
     document.querySelector('#view-devotion').innerHTML += featuredDevotion.renderFeaturedDevo();
+    debugger
   }
 
   createCategories(categories) {
@@ -82,7 +88,7 @@ constructor() {
   }
 
   addCategories() {
-    document.querySelector('#categories-container').innerHTML = ` <a class="more-link" id="all" >All Entries</a><br><br>`;
+    document.querySelector('#categories-container').innerHTML = ` <button class="more-link" id="all" >All Entries</button>`;
     Category.all.forEach(
       category => (document.querySelector('#categories-container').innerHTML += category.renderCategory())
     );
@@ -107,12 +113,14 @@ constructor() {
       devotion.update(updatedDevotion.data.attributes);
       
       this.addDevotions();
+      $('#devotion-container').prepend(devotion.renderDevotion())
+
 
       // document.querySelector('#view-devotion').innerHTML = devotion.renderUpdateForm();
       // document.querySelector('#saved-now').innerHTML = `<i class="bi bi-check-lg" style="color:green"></i> Saved a few seconds ago`;
       this.SaveFunction();
-      document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
-      document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
+      // document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
+      // document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
 
     });
 
@@ -134,28 +142,41 @@ constructor() {
     const id = parseInt(e.target.dataset.id);
     const devotion = Devotion.findById(id);
 
-    fetch(`http://localhost:3000/api/v1/devotions/${id}`, {
+    let result = confirm("Are you sure you want to delete?");
+    if (result) {
+        fetch(`http://localhost:3000/api/v1/devotions/${id}`, {
             method: 'DELETE'
         })
         .then(response => response.json())
         .then(devotion => {
-          alert(devotion.message);
+          // alert(devotion.message);
           const element = document.getElementById(`devo-${id}`);
           element.parentNode.removeChild(element)
-         
+        
         }) 
 
-    // Devotion.all.filter( devotion => {return devotion.id != id})
+        Devotion.all = Devotion.all.filter(function(item) {
+          return item.id != id;
+        });
 
-    Devotion.all = Devotion.all.filter(function(item) {
-      return item.id != id;
-  });
-    // debugger
+        this.adapter.fetchCategories().then(this.createCategories); 
 
-    this.adapter.fetchCategories().then(this.createCategories); 
+        this.handleHomeClick();
+    }
 
-    this.handleHomeClick();
+    
 
+  }
+
+
+  handleSidebarClick(e){
+    const id = parseInt(e.target.dataset.id);
+    const devotion = Devotion.findById(id);
+    document.querySelector('#view-devotion').innerHTML = devotion.renderDevotionDetails();
+    // document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
+    // document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
+
+    console.log("sidebar clicked");
   }
 
   handleDevotionClick(e) {
@@ -169,8 +190,8 @@ constructor() {
     else if(e.target.id === "read-more")
     {      
       document.querySelector('#view-devotion').innerHTML = devotion.renderDevotionDetails();
-      document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
-      document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
+      // document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
+      // document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
 
       console.log("title/read more Clicked");
     }  
@@ -198,17 +219,15 @@ constructor() {
     if(e.target.id === "all"){
       result = Devotion.all
       result.forEach(
-        devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
+        devotion => ($('#devotion-container').prepend(devotion.renderDevotion()))
       );
     } else if(result.length!=0){
       result.forEach(
-        devotion => (document.querySelector('#devotion-container').innerHTML += devotion.renderDevotion())
+        devotion => ($('#devotion-container').prepend(devotion.renderDevotion()))
       );
     } else {
       document.querySelector('#devotion-container').innerHTML = `<div class="notice">There are no devotions in this category</div>`
     }
-    
-    console.log("Category Clicked"); 
   }
 
   createFormHandler(e) {
@@ -243,8 +262,8 @@ constructor() {
      document.querySelector('#view-devotion').innerHTML = newDevotion.renderDevotionDetails();
      this.SaveFunction();
 
-     document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
-    document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
+    //  document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
+    // document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
 
     this.adapter.fetchCategories().then(this.createCategories); 
 

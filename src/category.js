@@ -31,7 +31,7 @@ class Category {
       return `
         
           <div >
-            <a class="more-link" class="alignleft" id=${this.id} style="color:${this.pickColor()}">${this.name}</a>
+            <button class="more-link" class="alignleft" id=${this.id}>${this.name}</button>
             <p class="alignright">${this.devotions.length}</p>
           </div>
           <div style="clear: both;"></div>

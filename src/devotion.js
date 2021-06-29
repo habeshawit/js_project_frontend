@@ -156,19 +156,28 @@ class Devotion {
   renderFeaturedDevo(){
 
     return `
-      
+
+      <div class="statistics">
+          <div class="row">
+            <div class="col" style="border-right: 1px solid black!important; border-radius: 0px!important"><span>${Devotion.all.length}</span><br> total entries</div>
+            <div class="col" ><span>Start day</span><br> ${new Date(Devotion.all[Devotion.all.length-1].created_at).toDateString()}</div>
+          </div>
+      </div>
+      <br><hr>
+      <h4 style="margin:15px">Latest Entry:</h4>
       <div class="row gx-4 gx-lg-5 align-items-center" id=${this.id} >
         
-      <div class="col-md-6" id="featured-devo" style="border:none!important;"><img class="card-img-top mb-5 mb-md-0" src=${this.image_url} alt="..."></div>
+        <div class="col-md-6" style="border:none!important;"><img class="card-img-top mb-5 mb-md-0" src=${this.image_url} alt="..."></div>
 
-        <div class="col-md-6" style="border:none!important">
-            <h1 class="display-5 fw-bolder">${this.title}</h1>
-            
-            <p class="lead">${this.content}</p>
-            <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > Read more </a></p>
-            
-            
-        </div>
+          <div class="col-md-6" id="featured-devo" style="border:none!important">
+              
+              <h1 class="display-5 fw-bolder">${this.title}</h1>
+              
+              <p class="lead">${this.content}</p>
+              <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > Read more </a></p>
+              
+              
+          </div>
         
       </div>
     
