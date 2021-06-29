@@ -1,6 +1,19 @@
 class Home {
 
-  
+    greeting() {
+      let d = new Date();
+      let time = d.getHours();
+      
+      if (time < 12) {
+        return `<h1>Good morning!</h1>`
+      }
+      if (time > 12 && time < 18) {
+        return `<h1>Good Afternoon!</h1>`
+      }
+      if (time >18 ) {
+        return `<h1>Good Evening!</h1>`
+      }
+    }
 
     renderDevotionForm() {
       return `
@@ -50,7 +63,7 @@ class Home {
           </div>
 
           <div class="input" >
-            <textarea id='input-content' name="content" value="" class="input-field" onkeypress="countWords(this)" onkeydown='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
+            <textarea id='input-content' name="content" value="" class="input-field" onkeyup="countWords(this)" onkeyup='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
           </div>
           
           <div class="" >
@@ -72,7 +85,7 @@ class Home {
 
           <div class="welcome-home">
             <p>${new Date().toDateString()}</p>
-            <h1>Good Morning!</h1>
+            ${this.greeting()}
 
             <p style="font-size:20px">"Your word is a lamp for my feet, a light on my path." - Psalms 115:105</p>
 

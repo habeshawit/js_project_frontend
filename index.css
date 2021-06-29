@@ -166,8 +166,6 @@ img.card-img-top {
   display: block!important;
   /* overflow: auto!important; */
 
-  
-
 }
 
 #dev-col{
@@ -510,9 +508,11 @@ input {
 
 textarea{
 
-  /* height: 300px; */
+  min-height: 300px!important;
+
   resize: vertical;
   overflow: hidden;
+  white-space: pre-wrap!important; 
 }
 
 .categories{
@@ -521,7 +521,8 @@ textarea{
   /* color:#ccb78f; */
 }
 .categories p{
-  color: grey!important
+  color: grey!important;
+  margin: 10px;
 }
 /* 
 .categories h5{

@@ -60,7 +60,7 @@ constructor() {
     this.addDevotions();
     const featuredDevotion = Devotion.all[0];
     document.querySelector('#view-devotion').innerHTML += featuredDevotion.renderFeaturedDevo();
-    debugger
+    
   }
 
   createCategories(categories) {
@@ -121,10 +121,10 @@ constructor() {
       this.SaveFunction();
       // document.querySelector("#edit-btn").addEventListener('click', this.handleDevotionClick);  
       // document.querySelector("#delete-btn").addEventListener('click', this.handleDevotionClick);  
+    this.adapter.fetchCategories().then(this.createCategories); 
 
     });
 
-    this.adapter.fetchCategories().then(this.createCategories); 
 
   }
 
