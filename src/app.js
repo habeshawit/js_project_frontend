@@ -35,7 +35,7 @@ constructor() {
     console.log("home clicked");
     const home = new Home();
     document.querySelector('#view-devotion').innerHTML = home.renderHomeDisplay();
-    document.querySelector('#start-journal').addEventListener('click', this.handleDevotionAdd);
+    // document.querySelector('#start-journal').addEventListener('click', this.handleDevotionAdd);
     this.addFeaturedDevo();
   }
 
@@ -174,6 +174,16 @@ constructor() {
 
       console.log("title/read more Clicked");
     }  
+    else if(e.target.id === "start-journal")
+    {
+      this.handleDevotionAdd();
+    }
+    else if(e.path[1].id === "done-button")
+    {
+      const id = parseInt(e.path[1].dataset.id);
+      const devotion = Devotion.findById(id);
+      document.querySelector('#view-devotion').innerHTML = devotion.renderDevotionDetails();
+    }
     else if(e.target.id === "delete-btn"){
       console.log("delete button clicked");
       this.handleDelete(e);

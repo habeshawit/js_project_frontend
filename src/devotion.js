@@ -62,11 +62,12 @@ class Devotion {
 
     <div style="width:100%">
     
-	  <div class="">
+	  <div>
       <form class="card-form" id="edit-devotion-form" data-id=${this.id}>
         <hr>
         <p><i class="bi bi-calendar"></i> ${new Date(this.created_at).toDateString()} |  
           <span id="show-word-count">0</span> words | <button class="more-link"><input id='edit-save' type="submit" name="submit" value="Save now"  class="submit"></button>
+          | <span class="update" data-id=${this.id} id="done-button" data-id=${this.id}> <a class="more-link">Done<a> </span>
           <span id="saved-now" class="alignright"></span>
         </p>
         <hr>
