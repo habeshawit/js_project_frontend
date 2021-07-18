@@ -2,147 +2,195 @@ class Devotion {
   constructor(id, devotionAttributes) {
     this.id = id;
     this.title = devotionAttributes.title;
-    this.date = devotionAttributes.date;
     this.verse = devotionAttributes.verse;
     this.content = devotionAttributes.content;
     this.image_url = devotionAttributes.image_url;
     this.category = devotionAttributes.category;
+    this.created_at = devotionAttributes.created_at
+    
     Devotion.all.push(this);
   }
+
+    //Can call it on the devotion class itself
+    static findById(id) {
+      return Devotion.all.find((devotion) => devotion.id == id);
+    }
+  
+    //prettier-ignore
+    update({ title, verse, content, image_url, category }) {
+      this.title = title;
+      this.verse = verse;
+      this.content = content;
+      this.image_url = image_url;
+      this.category = category;
+    }
+
+
+    
 
   renderDevotion() {
     return `
     
-    <div class="col-md-2 d-flex">
-            
-        <div class="card mb-5 shadow-sm flex-fill" >
-        <img src=${this.image_url} class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>
-        <div class="card-body">
-            <h5 class="card-title">${this.title}</h5>
-            <p class="card-text">${this.verse}</p>
-            <p class="card-text">${this.date}</p>
-            <div class="d-flex justify-content-between align-items-center">
+        <div class="row" id="devo-${this.id}">
 
-            <!-- Button trigger modal -->
-            <button type="button" id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id=${this.id}>
-              Edit
-            </button>
+          <div class="col" id="dev-col" style="display: table-cell!important;vertical-align: middle!important; width: 68%!important; text-align:justify">
+            <h5 class="card-title"  class="card-img-top" alt="..."  data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id}>${this.title}</h5>
             
-            <small class="text-muted">${this.category.name}</small>
+            <div id="details"
+              <p>${this.content}</p>
             </div>
+
+            <div>
+              <p class="text-muted" style="color:grey!important; font-size:12px!important">${new Date(this.created_at).toDateString()} </p><br>
+              <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > &larr; Read more </a></p>
+            </div>
+          </div>
+
+          <div class="col" id="dev-col" style="width:20%">
+            <img src=${this.image_url} " >
+          </div>
+          <hr style="width: 100vw;">  
         </div>
-        </div>
-    </div>
+        
+
     `;
   }
 
   renderUpdateForm() {
-    return `
     
-    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Devotion</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form data-id=${this.id} >
+    return `
+
+    <div style="width:100%">
+    
+	  <div>
+      <form class="card-form" id="edit-devotion-form" data-id=${this.id}>
+        <hr>
+        <p><i class="bi bi-calendar"></i> ${new Date(this.created_at).toDateString()} |  
+          <span id="show-word-count">0</span> words | <button class="more-link"><input id='edit-save' type="submit" name="submit" value="Save now"  class="submit" ></button>
+          | <span class="update" data-id=${this.id} id="done-button" data-id=${this.id}> <a class="more-link">Done<a> </span>
+          <span id="saved-now" class="alignright"></span>
+        </p>
+        <hr>
+
+        <div class="">
+            <label><i class="bi bi-file-ruled"></i> </label>
+
+            <select class="input-field" id="categories" name="categories" value=${this.category}>
+            <option value="${this.category.id}">${this.category.name}</option>
+            <option value="1">Prayer</option>
+            <option value="2">Love</option>
+            <option value="3">Personal Growth</option>
+            <option value="4">Righteousness</option>
+            <option value="5">Daily living</option>
+            <option value="6">Culture</option>
+            <option value="7">Theology</option>
+            <option value="8">Accountability</option>
+            <option value="9">Knowing God</option>
+            <option value="10">Maturity</option>
+            <option value="11">Family</option>
+            <option value="12">Church</option>
+            <option value="13">Struggle</option>
+          </select>
+
+        </div>  
+
+
+    
       
-      <div class="form-group row">
-            <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="form-control">
-          </div>
+  <div class="input" >
+          <input id='input-title' type="text" name="title" value="${this.title}" placeholder="Title" class="input-field">
+        </div>
+    
+        <div class="input">
+          <input id='input-verse' type="text" name="verse" value="${this.verse}" placeholder="Verse" class="input-field">
+        </div>
 
-          <div class="form-group row">
-            <input id='input-date' type="text" name="date" value="${this.date}" placeholder="Date" class="form-control">
-          </div>
+        <div class="input" >
+          <textarea id='input-content' name="content" value=${this.content} class="input-field" onkeypress="countWords(this)" onkeydown='this.style.height = "";this.style.height = this.scrollHeight + "px"'>${this.content}</textarea>
+        </div>
 
-          <div class="form-group row">
-            <input id='input-verse' type="text" name="verse" value="${this.verse}" placeholder="Verse" class="form-control">
-          </div>
-
-          <div class="form-group row">
-            <textarea id='input-content' name="content" rows="8" cols="80" value=${this.content} class="form-control">${this.content}</textarea>
-          </div>
-
-         <div class="form-group row">
-            <input id='input-url' type="text" name="image" value="${this.image_url}" placeholder="Image URL" class="form-control">
-          </div>
-          
-          <div class="form-group row">
-            <select class="form-control form-control-sm" id="categories" name="categories" value=${this.category}>
-              <option value="${this.category.id}">${this.category.name}</option>
-              <option value="1">Prayer</option>
-              <option value="2">Love</option>
-              <option value="3">Personal Growth</option>
-              <option value="4">Righteousness</option>
-              <option value="5">Daily living</option>
-              <option value="6">Culture</option>
-              <option value="7">Theology</option>
-              <option value="8">Accountability</option>
-              <option value="9">Knowing God</option>
-              <option value="10">Maturity</option>
-              <option value="11">Family</option>
-              <option value="12">Church</option>
-              <option value="13">Struggle</option>
-            </select>
-          </div>  
-      <div class="modal-footer">  
-        <input id='edit-button' class="btn btn-primary" type="submit" name="submit" value="Save Changes" class="submit">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
-      </div>
+        <div class="input">
+          <input id='input-url' type="text" name="image" value="${this.image_url}" placeholder="Image URL" class="input-field">
+        </div>
+    
       </form>
-      </div>
       
-    </div>
-  </div>
+	</div>
 </div>
+
   `;
-  }
-
-  //Can call it on the devotion class itself
-  static findById(id) {
-    return Devotion.all.find((devotion) => devotion.id == id);
-  }
-
-  //prettier-ignore
-  update({ title, date, verse, content, image_url, category }) {
-    this.title = title;
-    this.date = date;
-    this.verse = verse;
-    this.content = content;
-    this.image_url = image_url;
-    this.category = category;
+  
   }
 
   renderDevotionDetails() {
     return `
     
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-        <div class="modal-content-detail">
-          <div class="modal-header">
-            <h4 class="modal-title" id="exampleModalScrollableTitle">${this.title}</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <div class="render-details">
+      <span id="saved-now" class="alignright"></span>
+
+      <div classs="detail-header" style="line-height:0.25!important; margin-bottom:25px!important">
+
+        <p class="text-muted" >${new Date(this.created_at).toDateString()} |<button  type="button" style="background: transparent;border: none;" data-id=${this.id}>
+        <i class="bi bi-pencil-fill" style="margin:10px" id="edit-btn" data-id=${this.id}></i> | <i style="margin:10px" class="bi bi-trash-fill" id="delete-btn" data-id=${this.id}></i> </button></p>
       </div>
-      <div class="modal-body">
-          <img src=${this.image_url} class="card-text" width="250" height="250"><br><br>
-          <p class="card-text"><strong>Date: </strong>${this.date}</p>
-          <p class="card-text"><strong>Category: </strong>${this.category.name}</p>
-          <p class="card-text"><strong>Verse(s): </strong>${this.verse}</p>
-          <p class="card-text">${this.content}</p>
+      
+      <img src=${this.image_url} class="card-text" width="100%" height="400px" style="border-radius:0.5rem; text-align:justify"><br><br>
+      
+      <div class="detail-header" style="line-height:0.45!important; margin-bottom:25px!important">
+        <h3 style="font-weight:900">${this.title} </h3>
+
+        <p style="font-weight:bold"><i class="bi bi-file-ruled"></i> ${this.category.name} </p><br>
+
+        <p>${this.verse}</p>
       </div>
+              
+        <p class="card-text">${this.content}</p>
+
+        
     </div>
-  </div>
-</div>
+    
   `;
   }
+
+
+  renderFeaturedDevo(){
+
+    return `
+
+      <div class="statistics">
+          <div class="row">
+            <div class="col" style="border-right: 1px solid black!important; border-radius: 0px!important"><span>${Devotion.all.length}</span><br> total entries</div>
+            <div class="col" ><span>Start day</span><br> ${new Date(Devotion.all[Devotion.all.length-1].created_at).toDateString()}</div>
+          </div>
+      </div>
+      <br><hr>
+
+      
+      
+      <h4 style="margin:15px">Latest Entry:</h4>
+      <div class="row gx-4 gx-lg-5 align-items-center" id=${this.id} >
+        
+        <div class="col-md-6" style="border:none!important;"><img class="card-img-top mb-5 mb-md-0" src=${this.image_url} alt="..."></div>
+
+          <div class="col-md-6" id="featured-devo" style="border:none!important">
+              
+              <h1 class="display-5 fw-bolder">${this.title}</h1>
+              
+              <p class="lead">${this.content}</p>
+              <p><a class="more-link" class="card-img-top" alt="..." id="read-more" data-toggle="modal" data-target="#exampleModalScrollable" data-id=${this.id} > Read more </a></p>
+              
+              
+          </div>
+        
+      </div>
+    
+    
+    
+    `
+    
+  }
+
+
 }
 
 Devotion.all = [];

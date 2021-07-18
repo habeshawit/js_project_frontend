@@ -12,11 +12,16 @@ class Adapter {
     return this.get(`${this.baseUrl}/devotions`);
   }
 
+  fetchCategories() {
+    return this.get(`${this.baseUrl}/categories`);
+  }
+
   updateDevotion(id, body) {
     return this.patch(`${this.baseUrl}/devotions/${id}`, body);
   }
 
   get(url) {
+    
     return fetch(url).then((res) => res.json());
   }
 
@@ -27,4 +32,7 @@ class Adapter {
       body: JSON.stringify(body),
     }).then((res) => res.json());
   }
+
+
+
 }
